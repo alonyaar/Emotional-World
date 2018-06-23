@@ -472,7 +472,8 @@ var circlesGroup = svgContainer
   .append("g")
   .selectAll("g")
   .data(data);
-
+xScale.range([50, width - 80]);
+yScale.range([50, height - 80]);
 var circlesGroupEnter = circlesGroup
   .enter()
   .append("g")
@@ -503,7 +504,6 @@ function render() {
     .select("image")
     .attr("xlink:href", o => "resources/flags/" + o.language + ".png")
     .attr("text-anchor", "middle")
-    .attr("transform-origin", "20% 40%")
     .attr("x", o => xScale(o.x) - 22)
     .attr("y", o => yScale(o.y) - 22)
     .attr("width", "2.7em")
