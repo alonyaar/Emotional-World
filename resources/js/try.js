@@ -472,8 +472,10 @@ var circlesGroup = svgContainer
   .append("g")
   .selectAll("g")
   .data(data);
+
 xScale.range([50, width - 80]);
 yScale.range([50, height - 80]);
+
 var circlesGroupEnter = circlesGroup
   .enter()
   .append("g")
@@ -562,7 +564,7 @@ function onGeo() {
   circlesGroupEnter
     .select("image")
     .transition()
-    .duration(200)
+    .duration(150)
     .ease(d3.easeLinear)
     .attr("opacity", "0");
   cur_view = "geo";
@@ -573,7 +575,7 @@ function onFamily() {
   circlesGroupEnter
     .select("image")
     .transition()
-    .duration(200)
+    .duration(150)
     .ease(d3.easeLinear)
     .attr("opacity", "0");
   cur_view = "family";

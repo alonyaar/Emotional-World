@@ -44,6 +44,12 @@ body {
   top: 0;
   width: 120%;
   height: 6em;
+  border: 0.2em solid transparent;
+  border-image: linear-gradient(to left, #141721 0%, #181a26 50%, #141721 100%);
+  border-image-slice: 4;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 }
 
 .buttonDesign {
@@ -65,7 +71,16 @@ body {
 }
 
 .buttonDesign:focus {
-  border: none;
+  border: 0.12em solid transparent;
+  border-image: linear-gradient(
+    to bottom,
+    rgba(123, 228, 209, 0) 0%,
+    rgba(79, 184, 176, 1) 50%,
+    rgb(27, 81, 101, 0) 100%
+  );
+  border-image-slice: 2;
+  border-top: none;
+  border-bottom: none;
 }
 
 .buttonFlags {
@@ -115,6 +130,7 @@ body {
   font-size: 1em;
   font-family: "Avenir";
   font-weight: lighter;
+  user-select: none;
   fill: #383838;
   text-align: center;
   box-sizing: border-box;
@@ -130,7 +146,7 @@ body {
 
 .circleDesign {
   transform-origin: center;
-  transition-property: transform;
+  transition-property: transform opacity;
   transition-duration: 0.1s;
   transition-timing-function: ease;
   transition-delay: 0s;
@@ -138,11 +154,20 @@ body {
 }
 
 .circleDesign:hover {
-  transition-property: transform;
+  transition-property: transform opacity;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.25, 0.1, 0, 2.18);
   transition-delay: 0s;
   transform: scale(1.3);
+}
+
+.circleDesign:active {
+  transition-property: transform opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0, 2.18);
+  transition-delay: 0s;
+  opacity: 0.6;
+  transform: scale(1.2);
 }
 
 .flagDesign {
@@ -160,6 +185,7 @@ body {
   transition-delay: 0s;
   box-shadow: 7px 9px 17px -6px rgba(0, 0, 0, 0.4);
 }
+
 .geo1 {
   /* South America */
   fill: #673ab7;
