@@ -1,22 +1,30 @@
-body {
+#cont {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#171925+0,151723+100 */
   background: #171925; /* Old browsers */
   background: -moz-linear-gradient(
     -45deg,
-    #171925 0%,
-    #151723 100%
+    #10121c 0%,
+    #141621 100%
   ); /* FF3.6-15 */
   background: -webkit-linear-gradient(
     -45deg,
-    #171925 0%,
-    #151723 100%
+    #10121c 0%,
+    #141621 100%
   ); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(
     135deg,
-    #171925 0%,
-    #151723 100%
+    #10121c 0%,
+    #141621 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171925', endColorstr='#151723',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+​ #cont::before {
+  position: absolute;
+  content: "";
+  background: rgba(199, 0, 0, 0.9); /*partially transparent image*/
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
 }
 
 #toolBar {
@@ -113,40 +121,10 @@ body {
   border-radius: 50px;
   /* display: block; */
   margin-top: 125px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 25px;
+  margin-left: 15px;
   /* float: left; */
-  box-shadow: 7px 9px 17px -6px rgba(0, 0, 0, 0.3);
-}
-
-.svgInfo {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#181b26+0,141721+100 */
-  background: #181b26; /* Old browsers */
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    #181b26 0%,
-    #141721 70%
-  ); /* FF3.6-15 */
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    #181b26 0%,
-    #141721 70%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(
-    ellipse at center,
-    #181b26 0%,
-    #141721 70%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181b26', endColorstr='#141721',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  border-radius: 50px;
-  /* float: right; */
-  margin-right: 20px;
-
-  margin-top: 125px;
-  /* display: inline-block; */
-  box-shadow: 7px 9px 17px -6px rgba(0, 0, 0, 0.3);
+  box-shadow: 11px 11px 17px -6px rgba(0, 0, 0, 0.4);
 }
 
 .langName {
@@ -164,6 +142,7 @@ body {
   font-weight: lighter;
   user-select: none;
   fill: #383838;
+  color: white;
   text-align: center;
   box-sizing: border-box;
   padding: 2px;
@@ -202,20 +181,41 @@ body {
   transform: scale(1.2);
 }
 
-.flagDesign {
-  transition-property: box-shadow;
-  transition-duration: 0.1s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
-  box-shadow: 7px 9px 17px -6px rgba(0, 0, 0, 0);
+.svgInfo {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#181b26+0,141721+100 */
+  background: #181b26; /* Old browsers */
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    #171a25 0%,
+    #141721 70%
+  ); /* FF3.6-15 */
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    #171a25 0%,
+    #141721 70%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(
+    ellipse at center,
+    #171a25 0%,
+    #141721 70%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181b26', endColorstr='#141721',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  border-radius: 50px;
+  /* float: right; */
+  margin-right: 20px;
+
+  margin-top: 125px;
+  /* display: inline-block; */
+  box-shadow: 11px 11px 17px -6px rgba(0, 0, 0, 0.4);
 }
 
-.flagDesign:hover {
-  transition-property: box-shadow;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
-  box-shadow: 7px 9px 17px -6px rgba(0, 0, 0, 0.4);
+.infoHeadline {
+  color: white;
+  font-size: 3em;
+  font-family: "Times New Roman";
+  font-weight: normal;
 }
 
 .geo1 {

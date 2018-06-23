@@ -372,34 +372,33 @@ var data = [
   }
 ];
 
-var linesArr = [50, 150, 250, 350, 450, 550, 650, 750];
+var linesArr = [65, 165, 265, 365, 465, 565, 665, 765];
 
-var cur_view = "geo";
-var is_flag = 1;
+var cur_view = "flag";
+var cur_lang = data.findIndex(d => d.language == "English");
 
 var marginMap = { top: 125, right: 370, bottom: 40, left: 20 };
 var marginInfo = { top: 125, right: 20, bottom: 40, left: 20 };
 var widthMap = window.innerWidth - marginMap.right - marginMap.left;
 var heightMap = window.innerHeight - marginMap.top - marginMap.bottom;
 var widthInfo = widthMap / 3;
-
 var xScale = d3
   .scaleLinear()
   .domain([d3.min(data, d => d.x), d3.max(data, d => d.x)]);
 var yScale = d3
   .scaleLinear()
   .domain([d3.min(data, d => d.y), d3.max(data, d => d.y)]);
-
-window.addEventListener("resize", updateWindowSize);
-updateWindowSize();
-
+xScale.range([50, widthMap - 80]);
+yScale.range([50, heightMap - 80]);
 function updateWindowSize() {
   widthMap = window.innerWidth - marginMap.right - marginMap.left;
   heightMap = window.innerHeight - marginMap.top - marginMap.bottom;
   widthInfo = widthMap / 3;
 }
+window.addEventListener("resize", updateWindowSize);
+updateWindowSize();
 
-var bodySelect = d3.select("body").style("color", "white");
+var bodySelect = d3.select("body").attr("id", "cont");
 
 var boxesContainer = bodySelect
   .append("div")
@@ -412,12 +411,11 @@ toolBar.append("a").attr("class", "Logo buttonDesign");
 
 toolBar
   .append("input")
-  .attr("class", " buttonDesign")
+  .attr("class", "buttonDesign")
   .attr("name", "flagButton")
   .attr("type", "button")
   .attr("value", "Flags")
   .attr("onclick", "onFlag()");
-
 toolBar
   .append("input")
   .attr("class", " buttonDesign")
@@ -425,7 +423,6 @@ toolBar
   .attr("type", "button")
   .attr("value", "Geographic")
   .attr("onclick", "onGeo()");
-
 toolBar
   .append("input")
   .attr("class", " buttonDesign")
@@ -433,12 +430,11 @@ toolBar
   .attr("type", "button")
   .attr("value", "Languages Evolution")
   .attr("onclick", "onFamily()");
-
 toolBar
   .append("a")
   .attr("class", "buttonHappy buttonDesign")
   .attr("href", "#")
-  .text("Happines");
+  .text("Happiness");
 toolBar
   .append("a")
   .attr("class", "buttonShape buttonDesign")
@@ -461,9 +457,17 @@ var svgContainer = boxesContainer
 
 var infoContainer = boxesContainer
   .append("svg")
-  .attr("width", widthInfo)
-  .attr("height", heightMap)
-  .attr("class", "svgInfo");
+  .attr("class", "svgInfo")
+  .style("width", widthInfo)
+  .style("height", heightMap);
+
+var infoHeadline = infoContainer
+  .append("text")
+  .attr("class", "infoHeadline")
+  .attr("x", widthInfo / 4 + 20)
+  .attr("y", "80px")
+  .attr("text-anchor", "middle")
+  .text("Value vs Date Graph");
 
 var linesGroup = svgContainer.append("g");
 
@@ -474,8 +478,8 @@ var lines = linesGroup
   .append("line");
 
 lines
-  .attr("x1", 20)
-  .attr("x2", widthMap - 20)
+  .attr("x1", 30)
+  .attr("x2", widthMap - 70)
   .attr("y1", o => o)
   .attr("y2", o => o)
   .attr("stroke-width", 0.9)
@@ -487,17 +491,13 @@ var circlesGroup = svgContainer
   .selectAll("g")
   .data(data);
 
-xScale.range([50, widthMap - 80]);
-yScale.range([50, heightMap - 80]);
-
 var circlesGroupEnter = circlesGroup
   .enter()
   .append("g")
-  .attr("class", "circleDesign")
+  .attr("class", "circleDesign flag")
   .style("transform-origin", d => `${xScale(d.x)}px ${yScale(d.y)}px`)
   .on("mouseover", mouseOn)
   .on("mouseout", mouseOff);
-
 circlesGroupEnter.append("circle");
 circlesGroupEnter.append("image");
 
@@ -507,31 +507,41 @@ function render() {
   yScale.range([50, heightMap - 80]);
   svgContainer.call(tip);
 
+  circlesGroupEnter.attr("class", o => {
+    if (cur_view == "flag") return "circleDesign flag";
+    else if (cur_view == "geo") return "circleDesign geo" + o.geo;
+    else if (cur_view == "family") return "circleDesign family" + o.family;
+  });
+
   var circlesAttr = circlesGroupEnter
     .select("circle")
-    .attr("class", "emptyCircleDesign")
     .attr("cx", o => xScale(o.x))
     .attr("cy", o => yScale(o.y))
-    .attr("r", "1.3em")
-    .attr("class", o => {
-      if (cur_view == "geo") return "geo" + o.geo;
-      else if (cur_view == "family") return "family" + o.family;
-    });
+    .attr("r", "1.3em");
 
   var flag = circlesGroupEnter
     .select("image")
-    .attr("class", "flagDesign")
     .attr("xlink:href", o => "resources/flags/" + o.language + ".png")
     .attr("text-anchor", "middle")
     .attr("x", o => xScale(o.x) - 22)
     .attr("y", o => yScale(o.y) - 22)
     .attr("width", "2.7em")
-    .attr("opacity", is_flag)
-    .attr("name", o => o.language);
-
-  var textGroup = svgContainer.append("g");
+    .attr("name", o => o.language)
+    .on("click", function(o) {
+      index = data.findIndex(function(element) {
+        return element.language == o.language;
+      });
+      cur_lang = index;
+      renderInfo();
+    });
 }
 
+function renderInfo() {
+  infoHeadline.text(data[cur_lang].language);
+}
+
+render();
+renderInfo();
 function mouseOn(d) {
   tip.show(d);
   d3
@@ -539,13 +549,20 @@ function mouseOn(d) {
     .transition()
     .duration(100);
 }
-
 function mouseOff(d) {
   tip.hide(d);
   d3
     .select(this)
     .transition()
     .duration(100);
+}
+
+function chooseLang(d) {
+  index = data.findIndex(function(element) {
+    return element.language == d.language;
+  });
+  cur_lang = index;
+  renderInfo();
 }
 
 function onFlag() {
@@ -555,9 +572,15 @@ function onFlag() {
     .duration(200)
     .ease(d3.easeLinear)
     .attr("opacity", "1");
+
+  circlesGroupEnter
+    .select("circle")
+    .transition()
+    .duration(200)
+    .ease(d3.easeLinear)
+    .attr("opacity", "0");
   render();
 }
-
 function onGeo() {
   circlesGroupEnter
     .select("image")
@@ -565,10 +588,16 @@ function onGeo() {
     .duration(150)
     .ease(d3.easeLinear)
     .attr("opacity", "0");
+
+  circlesGroupEnter
+    .select("circle")
+    .transition()
+    .duration(200)
+    .ease(d3.easeLinear)
+    .attr("opacity", "1");
   cur_view = "geo";
   render();
 }
-
 function onFamily() {
   circlesGroupEnter
     .select("image")
@@ -579,37 +608,7 @@ function onFamily() {
   cur_view = "family";
   render();
 }
-// var texts = textGroup
-//   .selectAll("text")
-//   .data(data)
-//   .enter()
-//   .append("text");
-//
-// var textsAttr = texts
-//   .attr("text-anchor", "middle")
-//   .attr("x", o => xScale(o.x))
-//   .attr("y", o => yScale(o.y) + 40)
-//   .text(o => o.language)
-//   .attr("class", "langName");
 
-// function addDefs() {
-//   // filters go in defs element
-//   var defs = svgContainer.append("defs");
-//   addGradients(defs);
-//   addDropShadow(defs);
-// }
-//
-// function addGradients(defs) {
-//   var linearGradient = defs
-//     .append("linearGradient")
-//     .attr("id", "linear-gradient");
-//
-//   linearGradient
-//     .attr("x1", "0%")
-//     .attr("y1", "0%")
-//     .attr("x2", "100%")
-//     .attr("y2", "100%");
-//
 //   linearGradient
 //     .selectAll("stop")
 //     .data([
@@ -623,78 +622,3 @@ function onFamily() {
 //       { offset: "87.5%", color: "#e76818" },
 //       { offset: "100%", color: "#d7191c" }
 //     ])
-//     .enter()
-//     .append("stop")
-//     .attr("offset", function(d) {
-//       return d.offset;
-//     })
-//     .attr("stop-color", function(d) {
-//       return d.color;
-//     });
-//   var colorScale = d3
-//     .scaleLinear()
-//     .range([
-//       "#2c7bb6",
-//       "#00a6ca",
-//       "#00ccbc",
-//       "#90eb9d",
-//       "#ffff8c",
-//       "#f9d057",
-//       "#f29e2e",
-//       "#e76818",
-//       "#d7191c"
-//     ]);
-//
-//   //Append multiple color stops by using D3's data/enter step
-//   linearGradient
-//     .selectAll("stop")
-//     .data(colorScale.range())
-//     .enter()
-//     .append("stop")
-//     .attr("offset", function(d, i) {
-//       return i / (colorScale.range().length - 1);
-//     })
-//     .attr("stop-color", function(d) {
-//       return d;
-//     });
-// }
-//
-// function addDropShadow(defs) {
-//   // create filter with id #drop-shadow
-//   // height=130% so that the shadow is not clipped
-//   var filter = defs
-//     .append("filter")
-//     .attr("id", "drop-shadow")
-//     .attr("height", "130%");
-//
-//   // SourceAlpha refers to opacity of graphic that this filter will be applied to
-//   // convolve that with a Gaussian with standard deviation 3 and store result
-//   // in blur
-//   filter
-//     .append("feGaussianBlur")
-//     .attr("in", "SourceAlpha")
-//     .attr("stdDeviation", 5);
-//
-//   // translate output of Gaussian blur to the right and downwards with 2px
-//   // store result in offsetBlur
-//   filter
-//     .append("feOffset")
-//     .attr("dx", 2)
-//     .attr("dy", 5)
-//     .attr("result", "offsetBlur");
-//
-//   // Control opacity of shadow filter
-//   var feTransfer = filter.append("feComponentTransfer");
-//
-//   feTransfer
-//     .append("feFuncA")
-//     .attr("type", "linear")
-//     .attr("slope", 0.2);
-//
-//   // overlay original SourceGraphic over translated blurred opacity by using
-//   // feMerge filter. Order of specifying inputs is important!
-//   var feMerge = filter.append("feMerge");
-//
-//   feMerge.append("feMergeNode");
-//   feMerge.append("feMergeNode").attr("in", "SourceGraphic");
-// }
