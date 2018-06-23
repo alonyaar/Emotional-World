@@ -1,0 +1,267 @@
+body {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#171925+0,151723+100 */
+  background: #171925; /* Old browsers */
+  background: -moz-linear-gradient(
+    -45deg,
+    #171925 0%,
+    #151723 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -45deg,
+    #171925 0%,
+    #151723 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    135deg,
+    #171925 0%,
+    #151723 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171925', endColorstr='#151723',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+#toolBar {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#171925+0,151723+100 */
+  background: #171925; /* Old browsers */
+  background: -moz-linear-gradient(
+    -45deg,
+    #181b26 0%,
+    #141721 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -45deg,
+    #181a26 0%,
+    #141721 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    135deg,
+    #181a26 0%,
+    #141721 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171925', endColorstr='#151723',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  box-shadow: 0px 10px 17px -6px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 120%;
+  height: 6em;
+}
+
+.buttonDesign {
+  text-align: center;
+  position: relative;
+  color: #ece7e7;
+  background-color: rgba(0, 0, 0, 0);
+  top: 1em;
+  padding: 24px;
+  font-size: 1em;
+  font-style: normal;
+  font-family: "Avenir";
+  border-right: 0.002em solid #1f2433;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.buttonDesign:focus {
+  border: none;
+}
+
+.buttonFlags {
+  transition: 0.3s ease;
+  text-decoration: none;
+  /* border-bottom: 0.002em solid #1f2433; */
+}
+
+.svgContainer {
+  margin: auto;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#181b26+0,141721+100 */
+  background: #181b26; /* Old browsers */
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    #181b26 0%,
+    #141721 100%
+  ); /* FF3.6-15 */
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    #181b26 0%,
+    #141721 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(
+    ellipse at center,
+    #181b26 0%,
+    #141721 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181b26', endColorstr='#141721',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  border-radius: 50px;
+  display: block;
+  margin-top: 110px;
+  box-shadow: 7px 9px 17px -6px rgba(0, 0, 0, 0.3);
+}
+
+.langName {
+  font-size: 1em;
+  font-family: "Avenir";
+  font-weight: lighter;
+  fill: #b8b9ba;
+}
+
+.tipDesign {
+  position: absolute;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  font-size: 1em;
+  font-family: "Avenir";
+  font-weight: lighter;
+  fill: #383838;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 2px;
+  background: #181b26;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+  padding: 0.4em 0.5em 0.2em 0.5em;
+  display: inline-block;
+  box-shadow: 7px 9px 17px -6px rgba(0, 0, 0, 0.4);
+}
+
+.circleDesign {
+  transform: scale(1);
+  box-shadow: 7px 9px 17px -6px rgba(0, 0, 0, 0.4);
+}
+
+.circleDesign:hover {
+  transform: scale(3);
+}
+
+.geo1 {
+  /* South America */
+  fill: #673ab7;
+  opacity: 0.9;
+}
+
+.geo2 {
+  /* West Europe */
+  fill: #1aa6c8;
+  opacity: 0.9;
+}
+
+.geo3 {
+  /* Scandinavia */
+  fill: #21cbbb;
+  opacity: 0.9;
+}
+
+.geo4 {
+  /* Balcan Europe */
+  fill: #93eaa0;
+  opacity: 0.9;
+}
+
+.geo5 {
+  /* Center Europe */
+  fill: #fffe93;
+  opacity: 0.9;
+}
+
+.geo6 {
+  /* Afica */
+  fill: #f8cf61;
+}
+
+.geo7 {
+  /* West Asia */
+  fill: #f09d3d;
+}
+
+.geo8 {
+  /* Center Asia */
+  fill: #e56829;
+}
+
+.geo9 {
+  /* India Asia */
+  fill: #cc699b;
+}
+
+.geo10 {
+  /* East Asia */
+  fill: #d41d26;
+}
+
+.geo11 {
+  /* Israel */
+  fill: #1384b3;
+}
+
+.family1 {
+  fill: #673ab7;
+  opacity: 0.9;
+}
+
+.family2 {
+  fill: #1aa6c8;
+  opacity: 0.9;
+}
+
+.family3 {
+  fill: #21cbbb;
+  opacity: 0.9;
+}
+
+.family4 {
+  fill: #93eaa0;
+  opacity: 0.9;
+}
+
+.family5 {
+  fill: #fffe93;
+  opacity: 0.9;
+}
+
+.family6 {
+  fill: #f8cf61;
+}
+
+.family7 {
+  fill: #f09d3d;
+}
+
+.family8 {
+  fill: #e56829;
+}
+
+.family9 {
+  fill: #cc699b;
+}
+
+.family10 {
+  fill: #d41d26;
+}
+
+.family11 {
+  fill: #1384b3;
+}
+
+.family12 {
+  fill: #bbdcdf;
+}
+
+.family13 {
+  fill: #74797c;
+}
+
+.family14 {
+  fill: #eef170;
+}
+
+.family15 {
+  fill: #303233;
+}
+
+.family0 {
+  fill: #a84b4b;
+}
