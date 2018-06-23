@@ -440,7 +440,7 @@ toolBar
 var tip = d3
   .tip()
   .attr("class", "tipDesign")
-  .offset([-6, 2])
+  .offset([-6, 0])
   .html(function(d) {
     return d.language;
   });
@@ -490,8 +490,10 @@ function render() {
   xScale.range([50, width - 80]);
   yScale.range([50, height - 80]);
   svgContainer.call(tip);
+
   var circlesAttr = circlesGroupEnter
     .select("circle")
+    .attr("class", "emptyCircleDesign")
     .attr("cx", o => xScale(o.x))
     .attr("cy", o => yScale(o.y))
     .attr("r", "1.3em")
@@ -502,6 +504,7 @@ function render() {
 
   var flag = circlesGroupEnter
     .select("image")
+    .attr("class", "flagDesign")
     .attr("xlink:href", o => "resources/flags/" + o.language + ".png")
     .attr("text-anchor", "middle")
     .attr("x", o => xScale(o.x) - 22)
@@ -546,18 +549,33 @@ function mouseOff(d) {
 }
 
 function onFlag() {
-  is_flag = 1;
+  circlesGroupEnter
+    .select("image")
+    .transition()
+    .duration(200)
+    .ease(d3.easeLinear)
+    .attr("opacity", "1");
   render();
 }
 
 function onGeo() {
-  is_flag = 0;
+  circlesGroupEnter
+    .select("image")
+    .transition()
+    .duration(200)
+    .ease(d3.easeLinear)
+    .attr("opacity", "0");
   cur_view = "geo";
   render();
 }
 
 function onFamily() {
-  is_flag = 0;
+  circlesGroupEnter
+    .select("image")
+    .transition()
+    .duration(200)
+    .ease(d3.easeLinear)
+    .attr("opacity", "0");
   cur_view = "family";
   render();
 }
