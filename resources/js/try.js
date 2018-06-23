@@ -377,9 +377,11 @@ var linesArr = [50, 150, 250, 350, 450, 550, 650, 750];
 var cur_view = "geo";
 var is_flag = 1;
 
-var margin = { top: 110, right: 40, bottom: 40, left: 40 };
-var width = window.innerWidth - margin.right - margin.left;
-var height = window.innerHeight - margin.top - margin.bottom;
+var marginMap = { top: 125, right: 370, bottom: 40, left: 20 };
+var marginInfo = { top: 125, right: 20, bottom: 40, left: 20 };
+var widthMap = window.innerWidth - marginMap.right - marginMap.left;
+var heightMap = window.innerHeight - marginMap.top - marginMap.bottom;
+var widthInfo = widthMap / 3;
 
 var xScale = d3
   .scaleLinear()
@@ -392,11 +394,17 @@ window.addEventListener("resize", updateWindowSize);
 updateWindowSize();
 
 function updateWindowSize() {
-  width = window.innerWidth - margin.right - margin.left;
-  height = window.innerHeight - margin.top - margin.bottom;
+  widthMap = window.innerWidth - marginMap.right - marginMap.left;
+  heightMap = window.innerHeight - marginMap.top - marginMap.bottom;
+  widthInfo = widthMap / 3;
 }
 
 var bodySelect = d3.select("body").style("color", "white");
+
+var boxesContainer = bodySelect
+  .append("div")
+  .style("display", "flex")
+  .style("justify-content", "space-around");
 
 var toolBar = bodySelect.append("nav").attr("id", "toolBar");
 
@@ -445,11 +453,17 @@ var tip = d3
     return d.language;
   });
 
-var svgContainer = bodySelect
+var svgContainer = boxesContainer
   .append("svg")
-  .attr("width", width)
-  .attr("height", height)
+  .attr("width", widthMap)
+  .attr("height", heightMap)
   .attr("class", "svgContainer");
+
+var infoContainer = boxesContainer
+  .append("svg")
+  .attr("width", widthInfo)
+  .attr("height", heightMap)
+  .attr("class", "svgInfo");
 
 var linesGroup = svgContainer.append("g");
 
@@ -461,7 +475,7 @@ var lines = linesGroup
 
 lines
   .attr("x1", 20)
-  .attr("x2", width - 20)
+  .attr("x2", widthMap - 20)
   .attr("y1", o => o)
   .attr("y2", o => o)
   .attr("stroke-width", 0.9)
@@ -473,8 +487,8 @@ var circlesGroup = svgContainer
   .selectAll("g")
   .data(data);
 
-xScale.range([50, width - 80]);
-yScale.range([50, height - 80]);
+xScale.range([50, widthMap - 80]);
+yScale.range([50, heightMap - 80]);
 
 var circlesGroupEnter = circlesGroup
   .enter()
@@ -489,8 +503,8 @@ circlesGroupEnter.append("image");
 
 function render() {
   updateWindowSize();
-  xScale.range([50, width - 80]);
-  yScale.range([50, height - 80]);
+  xScale.range([50, widthMap - 80]);
+  yScale.range([50, heightMap - 80]);
   svgContainer.call(tip);
 
   var circlesAttr = circlesGroupEnter
@@ -514,22 +528,6 @@ function render() {
     .attr("width", "2.7em")
     .attr("opacity", is_flag)
     .attr("name", o => o.language);
-  // .on("mouseover", function(d) {
-  //   tip.show(d);
-  //   d3
-  //     .select(this)
-  //     .transition()
-  //     .duration(100)
-  //     .attr("width", "3em");
-  // })
-  // .on("mouseout", function(d) {
-  //   tip.hide(d);
-  //   d3
-  //     .select(this)
-  //     .transition()
-  //     .duration(100)
-  //     .attr("width", "2.7em");
-  // });
 
   var textGroup = svgContainer.append("g");
 }
