@@ -477,6 +477,7 @@ var circlesGroupEnter = circlesGroup
   .enter()
   .append("g")
   .attr("class", "circleDesign")
+  .style("transform-origin", d => `${xScale(d.x)}px ${yScale(d.y)}px`)
   .on("mouseover", mouseOn)
   .on("mouseout", mouseOff);
 
