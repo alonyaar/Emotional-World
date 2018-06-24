@@ -717,8 +717,12 @@ var xScale = d3
 var yScale = d3
   .scaleLinear()
   .domain([d3.min(data, d => d.y), d3.max(data, d => d.y)]);
+var happyScale = d3
+  .scaleLinear()
+  .domain([d3.min(data, d => d.happiness), d3.max(data, d => d.happiness)]);
 xScale.range([50, widthMap - 80]);
 yScale.range([50, heightMap - 80]);
+happyScale.range([0, 100]);
 function updateWindowSize() {
   widthMap = window.innerWidth - marginMap.right - marginMap.left;
   heightMap = window.innerHeight - marginMap.top - marginMap.bottom;
@@ -741,35 +745,46 @@ toolBar.append("a").attr("class", "Logo buttonDesign");
 
 toolBar
   .append("input")
-  .attr("class", "buttonDesign")
-  .attr("name", "flagButton")
+  .attr("class", "buttonDesign active")
+  .attr("id", "flagButton")
   .attr("type", "button")
   .attr("value", "Flags")
-  .attr("onclick", "onFlag()");
+  .on("click", _ => {
+    onButton("flag");
+  });
+
 toolBar
   .append("input")
   .attr("class", " buttonDesign")
-  .attr("name", "flagButton")
+  .attr("id", "geoButton")
   .attr("type", "button")
   .attr("value", "Geographic")
-  .attr("onclick", "onGeo()");
+  .on("click", _ => {
+    onButton("geo");
+  });
+
 toolBar
   .append("input")
   .attr("class", " buttonDesign")
-  .attr("name", "flagButton")
+  .attr("id", "familyButton")
   .attr("type", "button")
   .attr("value", "Languages Evolution")
-  .attr("onclick", "onFamily()");
+  .on("click", _ => {
+    onButton("family");
+  });
+
 toolBar
-  .append("a")
-  .attr("class", "buttonHappy buttonDesign")
-  .attr("href", "#")
-  .text("Happiness");
-toolBar
-  .append("a")
-  .attr("class", "buttonShape buttonDesign")
-  .attr("href", "#")
-  .text("Visual Shape");
+  .append("input")
+  .attr("class", " buttonDesign")
+  .attr("id", "happinessButton")
+  .attr("type", "button")
+  .attr("value", "Happiness")
+  .on("click", _ => {
+    d3.selectAll(".happiness").style("fill", d =>
+      colorGradient(happyScale(d.happiness), 0, 244)
+    );
+    onButton("happiness");
+  });
 
 var tip = d3
   .tip()
@@ -797,8 +812,7 @@ var infoHeadline = infoContainer
   .attr("class", "infoHeadline")
   .attr("x", widthInfo / 10)
   .attr("y", "80px")
-  .attr("text-anchor", "left")
-  .text("Value vs Date Graph");
+  .attr("text-anchor", "left");
 
 infoContainer
   .append("line")
@@ -829,7 +843,7 @@ infoContainer
   .attr("text-anchor", "left")
   .text("Most used words:");
 
-infoContainer
+var mostUsedWords = infoContainer
   .append("text")
   .attr("class", "mostUsedWords")
   .attr("x", widthInfo / 5)
@@ -837,21 +851,21 @@ infoContainer
   .attr("text-anchor", "left")
   .text("Word A    |     Word B     |    Word C");
 
-infoContainer
-  .append("text")
-  .attr("class", "mostUsedWordsHeadline")
-  .attr("x", widthInfo / 10)
-  .attr("y", "170px")
-  .attr("text-anchor", "left")
-  .text("Most used words:");
-
-infoContainer
-  .append("text")
-  .attr("class", "mostUsedWords")
-  .attr("x", widthInfo / 5)
-  .attr("y", "220px")
-  .attr("text-anchor", "left")
-  .text("Word A    |     Word B     |    Word C");
+// infoContainer
+//   .append("text")
+//   .attr("class", "mostUsedWordsHeadline")
+//   .attr("x", widthInfo / 10)
+//   .attr("y", "170px")
+//   .attr("text-anchor", "left")
+//   .text("Most used words:");
+//
+// infoContainer
+//   .append("text")
+//   .attr("class", "mostUsedWords")
+//   .attr("x", widthInfo / 5)
+//   .attr("y", "220px")
+//   .attr("text-anchor", "left")
+//   .text("Word A    |     Word B     |    Word C");
 // infoContainer
 //   .append("image")
 //   .attr("xlink:href", "resources/amCharts.png")
@@ -899,8 +913,10 @@ function render() {
 
   circlesGroupEnter.attr("class", o => {
     if (cur_view == "flag") return "circleDesign flag";
-    else if (cur_view == "geo") return "circleDesign geo" + o.geo;
-    else if (cur_view == "family") return "circleDesign family" + o.family;
+    else if (cur_view == "geo") return "circleDesign geo geo" + o.geo;
+    else if (cur_view == "family")
+      return "circleDesign family family" + o.family;
+    else if (cur_view == "happiness") return "circleDesign happiness";
   });
 
   var circlesAttr = circlesGroupEnter
@@ -940,6 +956,7 @@ function renderInfo() {
     cur_headline = "Portuguese";
   infoHeadline.text(cur_headline);
   infoLanguageName.text(capitalizeFirstLetter(data[cur_lang].lang_written));
+  mostUsedWords.text(data[cur_lang].unique_word_per_lang);
 }
 
 function renderLoad() {
@@ -949,62 +966,27 @@ function renderLoad() {
 
 function mouseOn(d) {
   tip.show(d);
-  d3.select(this)
-    .transition()
-    .duration(100);
 }
+
 function mouseOff(d) {
   tip.hide(d);
 }
 
-function onFlag() {
-  circlesGroupEnter
-    .select("image")
-    .transition()
-    .duration(200)
-    .ease(d3.easeLinear)
-    .attr("opacity", "1");
-
-  circlesGroupEnter
-    .select("circle")
-    .transition()
-    .duration(200)
-    .ease(d3.easeLinear)
-    .attr("opacity", "0");
-  render();
-}
-function onGeo() {
-  circlesGroupEnter
-    .select("image")
-    .transition()
-    .duration(150)
-    .ease(d3.easeLinear)
-    .attr("opacity", "0");
-
-  circlesGroupEnter
-    .select("circle")
-    .transition()
-    .duration(200)
-    .ease(d3.easeLinear)
-    .attr("opacity", "1");
-  cur_view = "geo";
-  render();
-}
-function onFamily() {
-  circlesGroupEnter
-    .select("image")
-    .transition()
-    .duration(150)
-    .ease(d3.easeLinear)
-    .attr("opacity", "0");
-
-  circlesGroupEnter
-    .select("circle")
-    .transition()
-    .duration(200)
-    .ease(d3.easeLinear)
-    .attr("opacity", "1");
-  cur_view = "family";
+function onButton(view) {
+  cur_view = view;
+  document.getElementById(view + "Button").className = "buttonDesign active";
+  if (view != "flag") {
+    document.getElementById("flagButton").className = "buttonDesign";
+  }
+  if (view != "geo") {
+    document.getElementById("geoButton").className = "buttonDesign";
+  }
+  if (view != "family") {
+    document.getElementById("familyButton").className = "buttonDesign";
+  }
+  if (view != "happiness") {
+    document.getElementById("happinessButton").className = "buttonDesign";
+  }
   render();
 }
 
@@ -1066,3 +1048,39 @@ var map = AmCharts.makeChart("mapFrame", {
 //     ])
 
 // <div id="mapdiv" style="width: 1000px; height: 450px;" />;
+
+/**
+ * You may use this function with both 2 or 3 interval colors for your gradient.
+ * For example, you want to have a gradient between Bootstrap's danger-warning-success colors.
+ */
+function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
+  var color1 = rgbColor1;
+  var color2 = rgbColor2;
+  var fade = fadeFraction;
+
+  // Do we have 3 colors for the gradient? Need to adjust the params.
+  if (rgbColor3) {
+    fade = fade * 2;
+
+    // Find which interval to use and adjust the fade percentage
+    if (fade >= 1) {
+      fade -= 1;
+      color1 = rgbColor2;
+      color2 = rgbColor3;
+    }
+  }
+
+  var diffRed = color2.red - color1.red;
+  var diffGreen = color2.green - color1.green;
+  var diffBlue = color2.blue - color1.blue;
+
+  var gradient = {
+    red: parseInt(Math.floor(color1.red + diffRed * fade), 10),
+    green: parseInt(Math.floor(color1.green + diffGreen * fade), 10),
+    blue: parseInt(Math.floor(color1.blue + diffBlue * fade), 10)
+  };
+
+  return (
+    "rgb(" + gradient.red + "," + gradient.green + "," + gradient.blue + ")"
+  );
+}

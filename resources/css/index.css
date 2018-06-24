@@ -70,15 +70,15 @@
   font-size: 1em;
   font-style: normal;
   font-family: "Avenir";
-  border-right: 0.002em solid #1f2433;
-  border-left: none;
+  border-right: 0.12em solid #1f2433;
+  border-left: 0.12em solid transparent;
   border-top: none;
   border-bottom: none;
   cursor: pointer;
   outline: none;
 }
 
-.buttonDesign:focus {
+.buttonDesign.active {
   border: 0.12em solid transparent;
   border-image: linear-gradient(
     to bottom,
@@ -156,12 +156,14 @@
 }
 
 .circleDesign {
+  fill: #555252;
   transform-origin: center;
   transition-property: transform opacity;
   transition-duration: 0.1s;
   transition-timing-function: ease;
   transition-delay: 0s;
   transform: scale(1);
+  cursor: pointer;
 }
 
 .circleDesign:hover {
@@ -179,6 +181,27 @@
   transition-delay: 0s;
   opacity: 0.6;
   transform: scale(1.2);
+}
+
+.circleDesign image {
+  transition: opacity 300ms ease, fill 300ms ease;
+}
+.circleDesign circle {
+  transition: opacity 300ms ease, fill 300ms ease;
+}
+
+.circleDesign.flag image {
+  opacity: 1;
+}
+
+.circleDesign.geo image,
+.circleDesign.family image,
+.circleDesign.happiness image {
+  opacity: 0;
+}
+
+.circleDesign:hover image {
+  opacity: 1;
 }
 
 .svgInfo {
@@ -236,6 +259,9 @@
   letter-spacing: 0px;
 }
 
+.happiness {
+  fill: transparent;
+}
 .geo1 {
   /* South America */
   fill: #673ab7;
