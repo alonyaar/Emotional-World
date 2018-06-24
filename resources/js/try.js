@@ -71,7 +71,7 @@ var data = [
     y: -128,
     geo: 7,
     family: 9,
-    happiness: 0,
+    happiness: 15,
     countries: "Azerbaijan | Turkey",
     lang_written: "Азәрбајҹан дили",
     unique_word_per_lang: "Acceptance",
@@ -97,7 +97,7 @@ var data = [
     y: 97.9,
     geo: 2,
     family: 7,
-    happiness: 0,
+    happiness: 15,
     countries: "Andorra | Spain | France",
     lang_written: "català",
     unique_word_per_lang: "Mercy",
@@ -691,7 +691,7 @@ var data = [
     y: -40.3,
     geo: 3,
     family: 6,
-    happiness: 0,
+    happiness: 15,
     countries: "Wales | United Kingdom",
     lang_written: "Cymraeg",
     unique_word_per_lang: "Habit",
@@ -702,7 +702,7 @@ var data = [
 ];
 
 var linesArr = [65, 165, 265, 365, 465, 565, 665, 765];
-
+var happinessColors = [];
 var cur_view = "flag";
 var cur_lang = data.findIndex(d => d.language == "English");
 
@@ -722,7 +722,7 @@ var happyScale = d3
   .domain([d3.min(data, d => d.happiness), d3.max(data, d => d.happiness)]);
 xScale.range([50, widthMap - 80]);
 yScale.range([50, heightMap - 80]);
-happyScale.range([0, 100]);
+happyScale.range([0, 1]);
 function updateWindowSize() {
   widthMap = window.innerWidth - marginMap.right - marginMap.left;
   heightMap = window.innerHeight - marginMap.top - marginMap.bottom;
@@ -730,6 +730,16 @@ function updateWindowSize() {
 }
 window.addEventListener("resize", updateWindowSize);
 updateWindowSize();
+
+for (var i = 0; i < data.length; i++) {
+  happinessColors.push(
+    `${colorGradient(
+      happyScale(data[i].happiness),
+      "rgb(10, 0, 0)",
+      "rgb(80, 173, 102)"
+    )}`
+  );
+}
 
 var bodySelect = d3.select("body").attr("id", "cont");
 
@@ -780,9 +790,6 @@ toolBar
   .attr("type", "button")
   .attr("value", "Happiness")
   .on("click", _ => {
-    d3.selectAll(".happiness").style("fill", d =>
-      colorGradient(happyScale(d.happiness), 0, 244)
-    );
     onButton("happiness");
   });
 
@@ -902,7 +909,9 @@ var circlesGroupEnter = circlesGroup
   .style("transform-origin", d => `${xScale(d.x)}px ${yScale(d.y)}px`)
   .on("mouseover", mouseOn)
   .on("mouseout", mouseOff);
-circlesGroupEnter.append("circle");
+
+var circle1Group = circlesGroupEnter.append("circle");
+var circle2Group = circlesGroupEnter.append("circle");
 circlesGroupEnter.append("image");
 
 function render() {
@@ -919,11 +928,37 @@ function render() {
     else if (cur_view == "happiness") return "circleDesign happiness";
   });
 
-  var circlesAttr = circlesGroupEnter
-    .select("circle")
+  var circles1Attr = circle1Group
+    .attr("id", "geoFamily")
     .attr("cx", o => xScale(o.x))
     .attr("cy", o => yScale(o.y))
     .attr("r", "1.3em");
+
+  var circles2Attr = circle2Group
+    .attr("id", "happy")
+    .attr("cx", o => xScale(o.x))
+    .attr("cy", o => yScale(o.y))
+    .attr("r", "1.3em")
+    // .attr("fill", function(d) {
+    //   index = data.findIndex(function(element) {
+    //     return element.language == d.language;
+    //   });
+    //
+    //   return happinessColors[index];
+    // });
+    .attr("fill", function(d) {
+      if (d.happiness == 15) return "transparent";
+      else if (d.happiness > 15 && d.happiness < 16.8) return "#9A2A1B";
+      else if (d.happiness >= 16.8 && d.happiness < 20.7) return "#9A2A1B";
+      else if (d.happiness >= 20.7 && d.happiness < 24.7) return "#A62F30";
+      else if (d.happiness >= 24.7 && d.happiness < 28.6) return "#FAC933";
+      else if (d.happiness >= 28.6 && d.happiness < 30) return "#FCEB33";
+      else if (d.happiness >= 30 && d.happiness < 32.6) return "#BAD15E";
+      else if (d.happiness >= 32.6 && d.happiness < 36.6) return "#4DA86B";
+      else if (d.happiness >= 36.6 && d.happiness < 40.6) return "#2E6603";
+      else if (d.happiness >= 40.6 && d.happiness < 44.5) return "#2E6603";
+      else if (d.happiness >= 44.5) return "#4DA86B";
+    });
 
   var flag = circlesGroupEnter
     .select("image")
@@ -1054,6 +1089,9 @@ var map = AmCharts.makeChart("mapFrame", {
  * For example, you want to have a gradient between Bootstrap's danger-warning-success colors.
  */
 function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
+  if (fadeFraction == 0) {
+    return "transparent";
+  }
   var color1 = rgbColor1;
   var color2 = rgbColor2;
   var fade = fadeFraction;
@@ -1069,15 +1107,27 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
       color2 = rgbColor3;
     }
   }
+  (colorsOnly1 = rgbColor1
+    .substring(rgbColor1.indexOf("(") + 1, rgbColor1.lastIndexOf(")"))
+    .split(/,\s*/)),
+    (red1 = colorsOnly1[0]),
+    (green1 = colorsOnly1[1]),
+    (blue1 = colorsOnly1[2]);
 
-  var diffRed = color2.red - color1.red;
-  var diffGreen = color2.green - color1.green;
-  var diffBlue = color2.blue - color1.blue;
+  (colorsOnly2 = rgbColor2
+    .substring(rgbColor2.indexOf("(") + 1, rgbColor2.lastIndexOf(")"))
+    .split(/,\s*/)),
+    (red2 = colorsOnly2[0]),
+    (green2 = colorsOnly2[1]),
+    (blue2 = colorsOnly2[2]);
 
+  var diffRed = red2 - red1;
+  var diffGreen = green2 - green1;
+  var diffBlue = blue2 - blue1;
   var gradient = {
-    red: parseInt(Math.floor(color1.red + diffRed * fade), 10),
-    green: parseInt(Math.floor(color1.green + diffGreen * fade), 10),
-    blue: parseInt(Math.floor(color1.blue + diffBlue * fade), 10)
+    red: parseInt(Math.floor(red1 + diffRed * fade), 10),
+    green: parseInt(Math.floor(green1 + diffGreen * fade), 10),
+    blue: parseInt(Math.floor(blue1 + diffBlue * fade), 10)
   };
 
   return (

@@ -200,6 +200,16 @@
   opacity: 0;
 }
 
+.circleDesign.flag #happy,
+.circleDesign.geo #happy,
+.circleDesign.family #happy {
+  opacity: 0;
+}
+
+.circleDesign.happiness #geoFamily {
+  opacity: 0;
+}
+
 .circleDesign:hover image {
   opacity: 1;
 }
@@ -260,7 +270,6 @@
 }
 
 .happiness {
-  fill: transparent;
 }
 .geo1 {
   /* South America */
