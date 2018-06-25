@@ -10,7 +10,9 @@ var data = [
     lang_written: "Afrikaans",
     unique_word_per_lang: "Hope",
     unique_lang_per_word: "Life",
-    main_country: "South-Africa"
+    main_country: "South-Africa",
+    family_name: "Indo-European, Germanic, West",
+    speakers: 7200000
   },
   {
     language: "Albanian",
@@ -23,7 +25,9 @@ var data = [
     lang_written: "shqip",
     unique_word_per_lang: "Life",
     unique_lang_per_word: "",
-    main_country: "Albania"
+    main_country: "Albania",
+    family_name: "Indo-European",
+    speakers: 5400000
   },
   {
     language: "Amharic",
@@ -37,7 +41,9 @@ var data = [
     unique_word_per_lang: "Power",
     unique_lang_per_word:
       "Hostility | Aversion | Alienation | Power | Impulsiveness",
-    main_country: "Ethiopia"
+    main_country: "Ethiopia",
+    family_name: "Afro-Asiatic, Semitic",
+    speakers: 22000000
   },
   {
     language: "Arabic",
@@ -46,11 +52,13 @@ var data = [
     geo: 6,
     family: 12,
     happiness: 23.8,
-    countries: "Egypt | Isarel | more than 30 other countries...",
+    countries: "Egypt | Isarel | Lebanon | more than 30 other countries...",
     lang_written: "العربية",
     unique_word_per_lang: "Blessed",
     unique_lang_per_word: "Fulfillment | Blessed",
-    main_country: "Egypt"
+    main_country: "Egypt",
+    family_name: "Afro-Asiatic, Semitic",
+    speakers: 280000000
   },
   {
     language: "Armenian",
@@ -63,7 +71,9 @@ var data = [
     lang_written: "Հայերեն",
     unique_word_per_lang: "Calm",
     unique_lang_per_word: "Calm | Forgiveness | Creativity",
-    main_country: "Aremina"
+    main_country: "Aremina",
+    family_name: "Indo-European",
+    speakers: 6700000
   },
   {
     language: "Azeri",
@@ -71,12 +81,14 @@ var data = [
     y: -128,
     geo: 7,
     family: 9,
-    happiness: 15,
+    happiness: 0,
     countries: "Azerbaijan | Turkey",
     lang_written: "Азәрбајҹан дили",
     unique_word_per_lang: "Acceptance",
     unique_lang_per_word: "Acceptance",
-    main_country: "Azerbaijan"
+    main_country: "Azerbaijan",
+    family_name: "Turkic",
+    speakers: 500000
   },
   {
     language: "Bengali",
@@ -89,7 +101,9 @@ var data = [
     lang_written: "বাংলা",
     unique_word_per_lang: "Worry",
     unique_lang_per_word: "Jealousy | Loyalty | Worry",
-    main_country: "Bangladesh"
+    main_country: "Bangladesh",
+    family_name: "Indo-European, Indo-Iranian",
+    speakers: 201000000
   },
   {
     language: "Catalan",
@@ -97,25 +111,29 @@ var data = [
     y: 97.9,
     geo: 2,
     family: 7,
-    happiness: 15,
+    happiness: 0,
     countries: "Andorra | Spain | France",
     lang_written: "català",
     unique_word_per_lang: "Mercy",
     unique_lang_per_word: "Mercy",
-    main_country: "Andorra"
+    main_country: "Andorra",
+    family_name: "Indo-European, Romance, Western",
+    speakers: 4000000
   },
   {
     language: "Croatian",
     x: -16.2,
     y: 46.3,
     geo: 5,
-    family: 2,
+    family: 1,
     happiness: 30.2,
     countries: "Croatia | Austria | Bosnia and Herzegovina | Serbia | Slovenia",
     lang_written: "Hrvatski",
     unique_word_per_lang: "Affection",
     unique_lang_per_word: "Affection",
-    main_country: "Croatia"
+    main_country: "Croatia",
+    family_name: "Indo-European, Slavic",
+    speakers: 5600000
   },
   {
     language: "Czech",
@@ -128,7 +146,9 @@ var data = [
     lang_written: "čeština",
     unique_word_per_lang: "Joy",
     unique_lang_per_word: "",
-    main_country: "Czech-Republic"
+    main_country: "Czech-Republic",
+    family_name: "Indo-European, Slavic",
+    speakers: 10600000
   },
   {
     language: "Danish",
@@ -141,7 +161,9 @@ var data = [
     lang_written: "dansk",
     unique_word_per_lang: "Hope",
     unique_lang_per_word: "Hope",
-    main_country: "Denmark"
+    main_country: "Denmark",
+    family_name: "Indo-European, Germanic, North",
+    speakers: 5500000
   },
   {
     language: "Dutch",
@@ -154,21 +176,25 @@ var data = [
     lang_written: "Nederlands",
     unique_word_per_lang: "Success",
     unique_lang_per_word: "Pressure",
-    main_country: "Netherlands"
+    main_country: "Netherlands",
+    family_name: "Indo-European, Germanic, West",
+    speakers: 22000000
   },
   {
     language: "English",
     x: -69.1,
     y: 26.8,
     geo: 3,
-    family: 4,
+    family: 5,
     happiness: 25.18,
     countries:
       "USA | Australia | United Kingdom | more than 80 other countries...",
     lang_written: "English",
     unique_word_per_lang: "Love",
     unique_lang_per_word: "Love",
-    main_country: "USA - England - Australia"
+    main_country: "USA - England - Australia",
+    family_name: "Indo-European, Germanic, West",
+    speakers: 335000000
   },
   {
     language: "Estonian",
@@ -181,12 +207,14 @@ var data = [
     lang_written: "eesti keel",
     unique_word_per_lang: "Life",
     unique_lang_per_word: "",
-    main_country: "Estonia"
+    main_country: "Estonia",
+    family_name: "Uralic, Finno-Ugric",
+    speakers: 1165400
   },
   {
     language: "Finnish",
-    x: -32.5,
-    y: -109,
+    x: -62.5,
+    y: -119,
     geo: 3,
     family: 10,
     happiness: 31.3,
@@ -194,7 +222,9 @@ var data = [
     lang_written: "suomi",
     unique_word_per_lang: "Habit",
     unique_lang_per_word: "Frustration",
-    main_country: "Finland"
+    main_country: "Finland",
+    family_name: "Uralic, Finno-Ugric",
+    speakers: 5400000
   },
   {
     language: "French",
@@ -207,7 +237,9 @@ var data = [
     lang_written: "français",
     unique_word_per_lang: "Evil",
     unique_lang_per_word: "",
-    main_country: "France"
+    main_country: "France",
+    family_name: "Indo-European, Romance, Western",
+    speakers: 75900000
   },
   {
     language: "Georgian",
@@ -220,7 +252,9 @@ var data = [
     lang_written: "ქართული",
     unique_word_per_lang: "Desire",
     unique_lang_per_word: "Desire",
-    main_country: "Georgia"
+    main_country: "Georgia",
+    family_name: "Kartvelian",
+    speakers: 3700000
   },
   {
     language: "Greek",
@@ -233,7 +267,9 @@ var data = [
     lang_written: "ελληνικά",
     unique_word_per_lang: "Joy",
     unique_lang_per_word: "Flamboyance | Destruction",
-    main_country: "Greece"
+    main_country: "Greece",
+    family_name: "Indo-European",
+    speakers: 11000000
   },
   {
     language: "Hebrew",
@@ -246,7 +282,9 @@ var data = [
     lang_written: "עברית",
     unique_word_per_lang: "Friendship",
     unique_lang_per_word: "Friendship",
-    main_country: "Israel"
+    main_country: "Israel",
+    family_name: "Afro-Asiatic, Semitic",
+    speakers: 5000000
   },
   {
     language: "Hindi",
@@ -259,8 +297,10 @@ var data = [
     lang_written: "हिन्दी",
     unique_word_per_lang: "Secured",
     unique_lang_per_word:
-      "Insult | Desperation | Fear | Empathy | Anxiety | Distress | Secured | Routine",
-    main_country: "India"
+      "Insult | Desperation | Fear | Empathy | Anxiety | Distress | Secured",
+    main_country: "India",
+    family_name: "Indo-European, Indo-Iranian",
+    speakers: 295000000
   },
   {
     language: "Hungarian",
@@ -274,7 +314,9 @@ var data = [
     lang_written: "magyar",
     unique_word_per_lang: "Sorry",
     unique_lang_per_word: "",
-    main_country: "Hungary"
+    main_country: "Hungary",
+    family_name: "Uralic, Finno-Ugric",
+    speakers: 13000000
   },
   {
     language: "Icelandic",
@@ -287,7 +329,9 @@ var data = [
     lang_written: "Íslenska",
     unique_word_per_lang: "Fun",
     unique_lang_per_word: "Fun",
-    main_country: "Iceland"
+    main_country: "Iceland",
+    family_name: "Indo-European, Germanic, North",
+    speakers: 330000
   },
   {
     language: "Indonesian",
@@ -300,7 +344,9 @@ var data = [
     lang_written: "Bahasa Indonesia",
     unique_word_per_lang: "Love",
     unique_lang_per_word: "",
-    main_country: "Indonesia"
+    main_country: "Indonesia",
+    family_name: "Austronesian, Malayo-Polynesian",
+    speakers: 43000000
   },
   {
     language: "Italian",
@@ -310,11 +356,13 @@ var data = [
     family: 7,
     happiness: 28.1,
     countries:
-      "Italy | Argentina | Croatia | Libya | Monaco | San Marino | Somalia | Switzerland | Vatican City",
+      "Italy | Argentina | Croatia | Libya | San Marino | Somalia | Switzerland",
     lang_written: "italiano",
     unique_word_per_lang: "Hurt",
     unique_lang_per_word: "Hurt",
-    main_country: "Italy"
+    main_country: "Italy",
+    family_name: "Indo-European, Romance",
+    speakers: 65000000
   },
   {
     language: "Japanese",
@@ -327,7 +375,9 @@ var data = [
     lang_written: "日本語",
     unique_word_per_lang: "Power",
     unique_lang_per_word: "Satisfaction | Tiredness",
-    main_country: "Japan"
+    main_country: "Japan",
+    family_name: "Japonic",
+    speakers: 125000000
   },
   {
     language: "Kazakh",
@@ -340,74 +390,86 @@ var data = [
     lang_written: "Қазақ тілі",
     unique_word_per_lang: "Soul",
     unique_lang_per_word: "",
-    main_country: "Kazakhstan"
+    main_country: "Kazakhstan",
+    family_name: "Turkic",
+    speakers: 1000000
   },
   {
     language: "Khmer",
     x: 56,
     y: -159,
     geo: 9,
-    family: 11,
+    family: 17,
     happiness: 25.6,
     countries: "Cambodia | Vietnam",
     lang_written: "ភាសាខ្មែរ",
     unique_word_per_lang: "Emotion",
     unique_lang_per_word: "Emotion | Nervousness | Activism",
-    main_country: "Cambodia"
+    main_country: "Cambodia",
+    family_name: "Austroasiatic",
+    speakers: 16000000
   },
   {
     language: "Korean",
     x: -7.16,
     y: -13.1,
     geo: 10,
-    family: 15,
+    family: 16,
     happiness: 24.8,
     countries: "South Korea | North Korea",
     lang_written: "한국어",
     unique_word_per_lang: "Dream",
     unique_lang_per_word:
       "Suicide | Laughter | Emptiness | Exhaustion | Sorry | Dream",
-    main_country: "South-Korea"
+    main_country: "South-Korea",
+    family_name: "Koreanic",
+    speakers: 77200000
   },
   {
     language: "Latvian",
     x: 72.5,
     y: -12.3,
     geo: 4,
-    family: 1,
+    family: 13,
     happiness: 17.1,
     countries: "Latvia",
     lang_written: "latviešu valoda",
     unique_word_per_lang: "Pleasure",
     unique_lang_per_word:
       "Pleasure | Joy | Astonishment | Laziness | Comradeship",
-    main_country: "Latvia"
+    main_country: "Latvia",
+    family_name: "Indo-European, Baltic",
+    speakers: 1750000
   },
   {
     language: "Lithuanian",
     x: 57,
     y: -24.7,
     geo: 4,
-    family: 1,
+    family: 13,
     happiness: 21,
     countries: "Lithuania | Latvia",
     lang_written: "lietuvių kalba",
     unique_word_per_lang: "hope",
     unique_lang_per_word: "",
-    main_country: "Lithuania"
+    main_country: "Lithuania",
+    family_name: "Indo-European, Baltic",
+    speakers: 3000000
   },
   {
     language: "Macedonian",
     x: 40.4,
     y: 12.4,
     geo: 5,
-    family: 2,
+    family: 1,
     happiness: 23.4,
     countries: "Macedonia",
     lang_written: "македонски",
     unique_word_per_lang: "Kindness",
     unique_lang_per_word: "Kindness",
-    main_country: "Macedonia"
+    main_country: "Macedonia",
+    family_name: "Indo-European, Slavic",
+    speakers: 1400000
   },
   {
     language: "Malaysian",
@@ -421,7 +483,9 @@ var data = [
     unique_word_per_lang: "Love",
     unique_lang_per_word:
       "Shame | Dismay | Passion | Optimism | Enthusiasm | Shyness",
-    main_country: "Malaysia"
+    main_country: "Malaysia",
+    family_name: "Austronesian, Malayo-Polynesian",
+    speakers: 20000000
   },
   {
     language: "Nepali",
@@ -434,7 +498,9 @@ var data = [
     lang_written: "नेपाली",
     unique_word_per_lang: "Secured",
     unique_lang_per_word: "Integrity",
-    main_country: "Nepal"
+    main_country: "Nepal",
+    family_name: "Indo-European, Indo-Iranian",
+    speakers: 20000000
   },
   {
     language: "Norwegian",
@@ -447,20 +513,24 @@ var data = [
     lang_written: "norsk",
     unique_word_per_lang: "Faith",
     unique_lang_per_word: "faith",
-    main_country: "Norway"
+    main_country: "Norway",
+    family_name: "Indo-European, Germanic, North",
+    speakers: 4700000
   },
   {
     language: "Persian",
     x: 88.5,
     y: -140,
-    geo: 8,
-    family: 9,
+    geo: 7,
+    family: 11,
     happiness: 24,
     countries: "Iran | Afghanistan | United Arab Emirates",
     lang_written: "فارسى",
     unique_word_per_lang: "Activism",
     unique_lang_per_word: "Melancholy",
-    main_country: "Iran"
+    main_country: "Iran",
+    family_name: "Indo-European, Indo-Iranian",
+    speakers: 55000000
   },
   {
     language: "Polish",
@@ -473,7 +543,9 @@ var data = [
     lang_written: "polski",
     unique_word_per_lang: "Life",
     unique_lang_per_word: "",
-    main_country: "Poland"
+    main_country: "Poland",
+    family_name: "Indo-European, Slavic",
+    speakers: 38500000
   },
   {
     language: "Portuguese_Brazil",
@@ -486,7 +558,9 @@ var data = [
     lang_written: "português",
     unique_word_per_lang: "Life",
     unique_lang_per_word: "",
-    main_country: "Brazil"
+    main_country: "Brazil",
+    family_name: "Indo-European, Romance, West",
+    speakers: 200000000
   },
   {
     language: "Portuguese_Europe",
@@ -499,7 +573,9 @@ var data = [
     lang_written: "português",
     unique_word_per_lang: "Life",
     unique_lang_per_word: "",
-    main_country: "Portugal"
+    main_country: "Portugal",
+    family_name: "Indo-European, Romance, West",
+    speakers: 10000000
   },
   {
     language: "Romanian",
@@ -512,33 +588,39 @@ var data = [
     lang_written: "român",
     unique_word_per_lang: "Evil",
     unique_lang_per_word: "Evil | Soul | Trust | Success | Longing | Madness",
-    main_country: "Romania"
+    main_country: "Romania",
+    family_name: "Indo-European, Romance, Western",
+    speakers: 24000000
   },
   {
     language: "Russian",
     x: 65.8,
     y: 132,
-    geo: 8,
-    family: 3,
+    geo: 4,
+    family: 1,
     happiness: 18.7,
     countries: "Russia | Ukraine | more than 20 other countires...",
     lang_written: "Русский язык",
     unique_word_per_lang: "Love",
     unique_lang_per_word: "",
-    main_country: "Russia"
+    main_country: "Russia",
+    family_name: "Indo-European, Slavic",
+    speakers: 166000000
   },
   {
     language: "Sinhala",
     x: 76.2,
     y: -75,
     geo: 9,
-    family: 13,
+    family: 11,
     happiness: 33.8,
     countries: "Sri Lanka",
     lang_written: "සිංහල",
     unique_word_per_lang: "Power",
     unique_lang_per_word: "",
-    main_country: "Sri-Lanka"
+    main_country: "Sri-Lanka",
+    family_name: "Indo-European, Indo-Iranian",
+    speakers: 14000000
   },
   {
     language: "Slovak",
@@ -551,20 +633,24 @@ var data = [
     lang_written: "slovenčina",
     unique_word_per_lang: "Life",
     unique_lang_per_word: "",
-    main_country: "Slovakia"
+    main_country: "Slovakia",
+    family_name: "Indo-European, Slavic",
+    speakers: 5200000
   },
   {
     language: "Slovenian",
     x: -47.9,
     y: 72,
     geo: 5,
-    family: 2,
+    family: 1,
     happiness: 24.6,
     countries: "Slovenia",
     lang_written: "slovenščina",
     unique_word_per_lang: "Pride",
     unique_lang_per_word: "",
-    main_country: "Slovenia"
+    main_country: "Slovenia",
+    family_name: "Indo-European, Slavic",
+    speakers: 2100000
   },
   {
     language: "Spanish_South_America",
@@ -577,7 +663,9 @@ var data = [
     lang_written: "español",
     unique_word_per_lang: "Evil",
     unique_lang_per_word: "",
-    main_country: "Argentina"
+    main_country: "Argentina",
+    family_name: "Indo-European, Romance, West",
+    speakers: 418000000
   },
   {
     language: "Spanish_Spain",
@@ -590,7 +678,9 @@ var data = [
     lang_written: "español",
     unique_word_per_lang: "Evil",
     unique_lang_per_word: "",
-    main_country: "Spain"
+    main_country: "Spain",
+    family_name: "Indo-European, Romance, West",
+    speakers: 38000000
   },
   {
     language: "Swahili",
@@ -604,7 +694,9 @@ var data = [
     unique_word_per_lang: "Fairness",
     unique_lang_per_word:
       "Fairness | Ambition | Praise | Pessimism | Ethics | Panic | Failure",
-    main_country: "Africa"
+    main_country: "Africa",
+    family_name: "Niger–Congo",
+    speakers: 12000000
   },
   {
     language: "Swedish",
@@ -617,7 +709,9 @@ var data = [
     lang_written: "svenska",
     unique_word_per_lang: "Hope",
     unique_lang_per_word: "",
-    main_country: "Sweeden"
+    main_country: "Sweeden",
+    family_name: "Indo-European, Germanic, North",
+    speakers: 9100000
   },
   {
     language: "Tagalog",
@@ -630,12 +724,14 @@ var data = [
     lang_written: "Tagalog",
     unique_word_per_lang: "Fun",
     unique_lang_per_word: "Wrath",
-    main_country: "Philippines"
+    main_country: "Philippines",
+    family_name: "Austronesian, Malayo-Polynesian",
+    speakers: 28000000
   },
   {
     language: "Turkish",
-    x: -69.6,
-    y: -73.5,
+    x: -29.6,
+    y: -123.5,
     geo: 7,
     family: 9,
     happiness: 26.4,
@@ -643,20 +739,24 @@ var data = [
     lang_written: "Türkçe",
     unique_word_per_lang: "Acceptance",
     unique_lang_per_word: "Hate | Terror | Nerve | Curiosity",
-    main_country: "Turkey"
+    main_country: "Turkey",
+    family_name: "Turkic",
+    speakers: 12000000
   },
   {
     language: "Ukrainian",
     x: 69.1,
     y: 40,
     geo: 4,
-    family: 3,
+    family: 1,
     happiness: 26.4,
     countries: "Ukraine | Slovakia | Croatia | Poland |",
     lang_written: "Українська",
     unique_word_per_lang: "Life",
     unique_lang_per_word: "",
-    main_country: "Ukraine"
+    main_country: "Ukraine",
+    family_name: "Indo-European, Slavic",
+    speakers: 32600000
   },
   {
     language: "Urdu",
@@ -670,20 +770,24 @@ var data = [
     lang_written: "اردو",
     unique_word_per_lang: "Hurt",
     unique_lang_per_word: "Cruelty | Contempt",
-    main_country: "Pakistan"
+    main_country: "Pakistan",
+    family_name: "Indo-European, Indo-Iranian",
+    speakers: 81000000
   },
   {
     language: "Uzbek",
-    x: 99.1,
-    y: -76,
-    geo: 8,
+    x: 29.1,
+    y: -176,
+    geo: 7,
     family: 9,
     happiness: 29.1,
     countries: "Uzbekistan | Turkmenistan",
     lang_written: "ўзбек тили",
-    unique_word_per_lang: "Aecurity",
+    unique_word_per_lang: "Secured",
     unique_lang_per_word: "",
-    main_country: "Uzbekistan"
+    main_country: "Uzbekistan",
+    family_name: "Turkic",
+    speakers: 32000000
   },
   {
     language: "Welsh",
@@ -691,18 +795,20 @@ var data = [
     y: -40.3,
     geo: 3,
     family: 6,
-    happiness: 15,
+    happiness: 0,
     countries: "Wales | United Kingdom",
     lang_written: "Cymraeg",
     unique_word_per_lang: "Habit",
     unique_lang_per_word:
-      "Disgust | Habit | Disappointment | Encouragement | Greed | Arrogance | Remorse",
-    main_country: "Wales"
+      "Disgust | Habit | Disappointment | Encouragement | Greed | Arrogance",
+    main_country: "Wales",
+    family_name: "Indo-European, Celtic",
+    speakers: 540000
   }
 ];
 
 var linesArr = [65, 165, 265, 365, 465, 565, 665, 765];
-var happinessColors = [];
+
 var cur_view = "flag";
 var cur_lang = data.findIndex(d => d.language == "English");
 
@@ -730,16 +836,6 @@ function updateWindowSize() {
 }
 window.addEventListener("resize", updateWindowSize);
 updateWindowSize();
-
-for (var i = 0; i < data.length; i++) {
-  happinessColors.push(
-    `${colorGradient(
-      happyScale(data[i].happiness),
-      "rgb(10, 0, 0)",
-      "rgb(80, 173, 102)"
-    )}`
-  );
-}
 
 var bodySelect = d3.select("body").attr("id", "cont");
 
@@ -838,47 +934,85 @@ var infoLanguageName = infoContainer
   .attr("x", widthInfo - 30)
   .attr("y", "125px")
   .attr("margin-right", "10px")
-  // .attr("position", "relative")
-  // .text(o => o.lang_written);
+
   .text("English");
 
 infoContainer
   .append("text")
   .attr("class", "mostUsedWordsHeadline")
   .attr("x", widthInfo / 10)
-  .attr("y", "170px")
+  .attr("y", "185px")
   .attr("text-anchor", "left")
-  .text("Most used words:");
+  .text("Unique word: ");
 
 var mostUsedWords = infoContainer
   .append("text")
-  .attr("class", "mostUsedWords")
-  .attr("x", widthInfo / 5)
-  .attr("y", "220px")
-  .attr("text-anchor", "left")
-  .text("Word A    |     Word B     |    Word C");
+  .attr("class", "mostUsedWordsHeadline")
+  .attr("x", widthInfo / 2)
+  .attr("y", "185px")
+  .attr("text-anchor", "left");
 
-// infoContainer
-//   .append("text")
-//   .attr("class", "mostUsedWordsHeadline")
-//   .attr("x", widthInfo / 10)
-//   .attr("y", "170px")
-//   .attr("text-anchor", "left")
-//   .text("Most used words:");
-//
-// infoContainer
-//   .append("text")
-//   .attr("class", "mostUsedWords")
-//   .attr("x", widthInfo / 5)
-//   .attr("y", "220px")
-//   .attr("text-anchor", "left")
-//   .text("Word A    |     Word B     |    Word C");
-// infoContainer
-//   .append("image")
-//   .attr("xlink:href", "resources/amCharts.png")
-//   .attr("text-anchor", "middle")
-//   .attr("width", widthInfo - 30 - widthInfo / 10)
-//   .attr("height", "400px");
+infoContainer
+  .append("text")
+  .attr("class", "mostUsedWords")
+  .attr("x", widthInfo / 2)
+  .attr("y", "260px")
+  .attr("text-anchor", "middle")
+  .text("Words most used by this language:");
+
+var wordsUsedByLang = infoContainer
+  .append("text")
+  .attr("class", "mostUsedWords")
+  .attr("x", widthInfo / 2)
+  .attr("y", "295px")
+  .attr("text-anchor", "middle");
+
+infoContainer
+  .append("line")
+  .attr("x1", widthInfo / 7)
+  .attr("x2", widthInfo - 48)
+  .attr("y1", "266px")
+  .attr("y2", "266px")
+  .attr("stroke-width", "0.06em")
+  .attr("stroke", "white");
+
+var wordsUsedByLang2 = infoContainer
+  .append("text")
+  .attr("class", "mostUsedWords")
+  .attr("x", widthInfo / 2)
+  .attr("y", "322px")
+  .attr("text-anchor", "middle");
+
+infoContainer
+  .append("text")
+  .attr("class", "mostUsedWords")
+  .attr("x", widthInfo / 2)
+  .attr("y", "375px")
+  .attr("text-anchor", "middle")
+  .text("Countries speaking that language:");
+
+var countries = infoContainer
+  .append("text")
+  .attr("class", "mostUsedWords")
+  .attr("x", widthInfo / 2)
+  .attr("y", "410px")
+  .attr("text-anchor", "middle");
+
+infoContainer
+  .append("line")
+  .attr("x1", widthInfo / 7 + 2)
+  .attr("x2", widthInfo - 52)
+  .attr("y1", "382px")
+  .attr("y2", "382px")
+  .attr("stroke-width", "0.06em")
+  .attr("stroke", "white");
+
+var countries2 = infoContainer
+  .append("text")
+  .attr("class", "mostUsedWords")
+  .attr("x", widthInfo / 2)
+  .attr("y", "440px")
+  .attr("text-anchor", "middle");
 
 var linesGroup = svgContainer.append("g");
 
@@ -895,7 +1029,8 @@ lines
   .attr("y2", o => o)
   .attr("stroke-width", 0.9)
   .attr("stroke-dasharray", "3 8")
-  .attr("stroke", "rgb(65, 64, 64)");
+  // .attr("stroke", "rgb(65, 64, 64)");
+  .attr("stroke", "rgba(61, 148, 150, 0.9)");
 
 var circlesGroup = svgContainer
   .append("g")
@@ -928,13 +1063,13 @@ function render() {
     else if (cur_view == "happiness") return "circleDesign happiness";
   });
 
-  var circles1Attr = circle1Group
+  circle1Group
     .attr("id", "geoFamily")
     .attr("cx", o => xScale(o.x))
     .attr("cy", o => yScale(o.y))
     .attr("r", "1.3em");
 
-  var circles2Attr = circle2Group
+  circle2Group
     .attr("id", "happy")
     .attr("cx", o => xScale(o.x))
     .attr("cy", o => yScale(o.y))
@@ -960,7 +1095,7 @@ function render() {
       else if (d.happiness >= 44.5) return "#4DA86B";
     });
 
-  var flag = circlesGroupEnter
+  circlesGroupEnter
     .select("image")
     .attr("xlink:href", o => "resources/flags/" + o.language + ".png")
     .attr("text-anchor", "middle")
@@ -991,7 +1126,35 @@ function renderInfo() {
     cur_headline = "Portuguese";
   infoHeadline.text(cur_headline);
   infoLanguageName.text(capitalizeFirstLetter(data[cur_lang].lang_written));
+  // infoHeadline.text(capitalizeFirstLetter(data[cur_lang].lang_written));
+  // infoLanguageName.text(cur_headline);
   mostUsedWords.text(data[cur_lang].unique_word_per_lang);
+  unique_lang_per_word = data[cur_lang].unique_lang_per_word;
+
+  if (unique_lang_per_word == "") {
+    wordsUsedByLang.text("- - - - - - -");
+    wordsUsedByLang2.text("");
+  } else if (unique_lang_per_word.split("|").length > 3) {
+    var arr = unique_lang_per_word.split("|");
+    wordsUsedByLang.text(arr.slice(0, 3).join("|"));
+    wordsUsedByLang2.text(arr.slice(3).join("|"));
+  } else {
+    wordsUsedByLang.text(unique_lang_per_word);
+    wordsUsedByLang2.text("");
+  }
+
+  countries_str = data[cur_lang].countries;
+  var arr = countries_str.split("|");
+  if (arr[arr.length - 1].startsWith(" more")) {
+    countries.text(arr.slice(0, -1).join("|"));
+    countries2.text(arr.slice(-1).join("|"));
+  } else if (countries_str.split("|").length > 3) {
+    countries.text(arr.slice(0, 3).join("|"));
+    countries2.text(arr.slice(3).join("|"));
+  } else {
+    countries.text(countries_str);
+    countries2.text("");
+  }
 }
 
 function renderLoad() {
@@ -1029,108 +1192,6 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-var map = AmCharts.makeChart("mapFrame", {
-  type: "map",
-  theme: "dark",
-  projection: "mercator",
-  panEventsEnabled: true,
-  backgroundColor: "#535364",
-  backgroundAlpha: 1,
-  zoomControl: {
-    zoomControlEnabled: false
-  },
-  dataProvider: {
-    map: "worldHigh",
-    getAreasFromMap: true,
-    areas: [
-      {
-        id: "BE",
-        showAsSelected: true
-      },
-      {
-        id: "BA",
-        showAsSelected: true
-      },
-      {
-        id: "BG",
-        showAsSelected: true
-      }
-    ]
-  },
-  areasSettings: {
-    autoZoom: true,
-    color: "#B4B4B7",
-    colorSolid: "#84ADE9",
-    selectedColor: "#84ADE9",
-    outlineColor: "#666666",
-    rollOverColor: "#9EC2F7",
-    rollOverOutlineColor: "#000000"
-  }
-});
-
-//   linearGradient
-//     .selectAll("stop")
-//     .data([
-//       { offset: "0%", color: "#2c7bb6" },
-//       { offset: "12.5%", color: "#00a6ca" },
-//       { offset: "25%", color: "#00ccbc" },
-//       { offset: "37.5%", color: "#90eb9d" },
-//       { offset: "50%", color: "#ffff8c" },
-//       { offset: "62.5%", color: "#f9d057" },
-//       { offset: "75%", color: "#f29e2e" },
-//       { offset: "87.5%", color: "#e76818" },
-//       { offset: "100%", color: "#d7191c" }
-//     ])
-
-// <div id="mapdiv" style="width: 1000px; height: 450px;" />;
-
-/**
- * You may use this function with both 2 or 3 interval colors for your gradient.
- * For example, you want to have a gradient between Bootstrap's danger-warning-success colors.
- */
-function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
-  if (fadeFraction == 0) {
-    return "transparent";
-  }
-  var color1 = rgbColor1;
-  var color2 = rgbColor2;
-  var fade = fadeFraction;
-
-  // Do we have 3 colors for the gradient? Need to adjust the params.
-  if (rgbColor3) {
-    fade = fade * 2;
-
-    // Find which interval to use and adjust the fade percentage
-    if (fade >= 1) {
-      fade -= 1;
-      color1 = rgbColor2;
-      color2 = rgbColor3;
-    }
-  }
-  (colorsOnly1 = rgbColor1
-    .substring(rgbColor1.indexOf("(") + 1, rgbColor1.lastIndexOf(")"))
-    .split(/,\s*/)),
-    (red1 = colorsOnly1[0]),
-    (green1 = colorsOnly1[1]),
-    (blue1 = colorsOnly1[2]);
-
-  (colorsOnly2 = rgbColor2
-    .substring(rgbColor2.indexOf("(") + 1, rgbColor2.lastIndexOf(")"))
-    .split(/,\s*/)),
-    (red2 = colorsOnly2[0]),
-    (green2 = colorsOnly2[1]),
-    (blue2 = colorsOnly2[2]);
-
-  var diffRed = red2 - red1;
-  var diffGreen = green2 - green1;
-  var diffBlue = blue2 - blue1;
-  var gradient = {
-    red: parseInt(Math.floor(red1 + diffRed * fade), 10),
-    green: parseInt(Math.floor(green1 + diffGreen * fade), 10),
-    blue: parseInt(Math.floor(blue1 + diffBlue * fade), 10)
-  };
-
-  return (
-    "rgb(" + gradient.red + "," + gradient.green + "," + gradient.blue + ")"
-  );
-}
+const numberWithCommas = x => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
