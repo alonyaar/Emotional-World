@@ -838,6 +838,21 @@ updateWindowSize();
 
 var bodySelect = d3.select("body").attr("id", "cont");
 
+// var opening = bodySelect.append("div").attr("id", "overlayDiv");
+// opening.append("div").attr("id", "overlayBG");
+// opening.append("img").attr("class", "imgOpening");
+// opening
+//   .append("div")
+//   .attr("class", "textOpening")
+//   .text("EMOTIONAL WORLD");
+//
+// opening
+//   .append("div")
+//   .attr("class", "secondTextOpening")
+//   .text(
+//     "enter the map & start investigating the world from another perspective"
+//   );
+
 var boxesContainer = bodySelect
   .append("div")
   .attr("id", "diva")
@@ -849,44 +864,48 @@ var toolBar = bodySelect.append("nav").attr("id", "toolBar");
 toolBar.append("a").attr("class", "Logo buttonDesign");
 
 toolBar
-  .append("input")
+  .append("button")
   .attr("class", "buttonDesign active")
   .attr("id", "flagButton")
-  .attr("type", "button")
-  .attr("value", "Flags")
   .on("click", _ => {
     onButton("flag");
   });
 
+document.getElementById("flagButton").innerHTML =
+  "<i id='flagIcon' class='fa fa-flag fa-gradient active'></i>    Flags";
+
 toolBar
-  .append("input")
+  .append("button")
   .attr("class", " buttonDesign")
   .attr("id", "geoButton")
-  .attr("type", "button")
-  .attr("value", "Geographic")
   .on("click", _ => {
     onButton("geo");
   });
 
+document.getElementById("geoButton").innerHTML =
+  "<i id='geoIcon' class='fa fa-globe fa-gradient'></i>    Geographic Locations";
+
 toolBar
-  .append("input")
+  .append("button")
   .attr("class", " buttonDesign")
   .attr("id", "familyButton")
-  .attr("type", "button")
-  .attr("value", "Languages Evolution")
   .on("click", _ => {
     onButton("family");
   });
 
+document.getElementById("familyButton").innerHTML =
+  "<i id='familyIcon' class='fa fa-tree fa-gradient'></i>    Language Families";
+
 toolBar
-  .append("input")
+  .append("button")
   .attr("class", " buttonDesign")
   .attr("id", "happinessButton")
-  .attr("type", "button")
-  .attr("value", "Happiness")
   .on("click", _ => {
     onButton("happiness");
   });
+
+document.getElementById("happinessButton").innerHTML =
+  "<i id='happinessIcon' class='fa fa-thumbs-up fa-gradient'></i>    Happy Planet Index";
 
 var tip = d3
   .tip()
@@ -1236,8 +1255,18 @@ function mouseOff(d) {
 }
 
 function onButton(view) {
+  icon = get_icon_name(cur_view);
+  document.getElementById(cur_view + "Icon").className =
+    "fa fa-" + icon + " fa-gradient";
+  document.getElementById(cur_view + "Icon").classList.add("fa-gradient");
+
   cur_view = view;
+  icon = get_icon_name(view);
+
   document.getElementById(view + "Button").className = "buttonDesign active";
+  document.getElementById(view + "Icon").className =
+    "fa fa-" + icon + " fa-gradient active";
+
   if (view != "flag") {
     document.getElementById("flagButton").className = "buttonDesign";
   }
@@ -1260,3 +1289,12 @@ function capitalizeFirstLetter(string) {
 const numberWithCommas = x => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
+
+function get_icon_name(view) {
+  icon = "";
+  if (view == "flag") icon = "flag";
+  else if (view == "geo") icon = "globe";
+  else if (view == "family") icon = "tree";
+  else if (view == "happiness") icon = "thumbs-up";
+  return icon;
+}
