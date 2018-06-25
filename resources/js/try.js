@@ -49,7 +49,7 @@ var data = [
     language: "Arabic",
     x: 90.5,
     y: 39.5,
-    geo: 6,
+    geo: 8,
     family: 12,
     happiness: 23.8,
     countries: "Egypt | Isarel | Lebanon | more than 30 other countries...",
@@ -275,7 +275,7 @@ var data = [
     language: "Hebrew",
     x: -1.01,
     y: 97.9,
-    geo: 6,
+    geo: 8,
     family: 12,
     happiness: 28.8,
     countries: "Israel",
@@ -355,8 +355,7 @@ var data = [
     geo: 2,
     family: 7,
     happiness: 28.1,
-    countries:
-      "Italy | Argentina | Croatia | Libya | San Marino | Somalia | Switzerland",
+    countries: "Italy | Argentina | Croatia | Libya | Somalia | Switzerland",
     lang_written: "italiano",
     unique_word_per_lang: "Hurt",
     unique_lang_per_word: "Hurt",
@@ -512,7 +511,7 @@ var data = [
     countries: "Norway",
     lang_written: "norsk",
     unique_word_per_lang: "Faith",
-    unique_lang_per_word: "faith",
+    unique_lang_per_word: "Faith",
     main_country: "Norway",
     family_name: "Indo-European, Germanic, North",
     speakers: 4700000
@@ -750,7 +749,7 @@ var data = [
     geo: 4,
     family: 1,
     happiness: 26.4,
-    countries: "Ukraine | Slovakia | Croatia | Poland |",
+    countries: "Ukraine | Slovakia | Croatia | Poland",
     lang_written: "Українська",
     unique_word_per_lang: "Life",
     unique_lang_per_word: "",
@@ -924,11 +923,12 @@ infoContainer
   .attr("y1", "100px")
   .attr("y2", "100px")
   .attr("stroke-width", "0.06em")
-  .attr("stroke", "white");
+  .attr("stroke", "white")
+  .attr("stroke-linejoin", "round");
 
 var infoLanguageName = infoContainer
   .append("text")
-  .attr("class", "mostUsedWords")
+  .attr("class", "smallInfoText")
   .attr("text-anchor", "end")
 
   .attr("x", widthInfo - 30)
@@ -937,82 +937,142 @@ var infoLanguageName = infoContainer
 
   .text("English");
 
+uniqueX = widthInfo / 4;
+uniqueY = 180;
 infoContainer
   .append("text")
-  .attr("class", "mostUsedWordsHeadline")
-  .attr("x", widthInfo / 10)
-  .attr("y", "185px")
-  .attr("text-anchor", "left")
-  .text("Unique word: ");
+  .attr("class", "mostUsedWordHeadline")
+  .attr("x", uniqueX)
+  .attr("y", uniqueY)
+  .attr("text-anchor", "middle")
+  .text("Unique Word: ");
 
 var mostUsedWords = infoContainer
   .append("text")
-  .attr("class", "mostUsedWordsHeadline")
-  .attr("x", widthInfo / 2)
-  .attr("y", "185px")
-  .attr("text-anchor", "left");
+  .attr("class", "mostUsedWord")
+  .attr("x", uniqueX)
+  .attr("y", uniqueY + 35)
+  .attr("text-anchor", "middle");
 
+speakersX = widthInfo / 1.4;
+speakersY = 180;
 infoContainer
   .append("text")
-  .attr("class", "mostUsedWords")
-  .attr("x", widthInfo / 2)
-  .attr("y", "260px")
+  .attr("class", "mostUsedWordHeadline")
+  .attr("x", speakersX)
+  .attr("y", speakersY)
+  .attr("text-anchor", "middle")
+  .text("Native Speakers: ");
+
+var numSpeakers = infoContainer
+  .append("text")
+  .attr("class", "mostUsedWord")
+  .attr("x", speakersX)
+  .attr("y", speakersY + 35)
+  .attr("text-anchor", "middle");
+
+infoContainer
+  .append("line")
+  .attr("x1", widthInfo / 2 - 13)
+  .attr("x2", widthInfo / 2 - 13)
+  .attr("y1", uniqueY - 15)
+  .attr("y2", uniqueY + 43)
+  .attr("stroke-width", "0.04em")
+  .attr("stroke", "rgb(255, 255, 255)")
+  .attr("stroke-linejoin", "round")
+  .attr("stroke-style", "dashed");
+
+mostUsedX = widthInfo / 2;
+mostUsedY = 280;
+infoContainer
+  .append("text")
+  .attr("class", "mostUsedWordHeadline")
+  .attr("x", mostUsedX)
+  .attr("y", mostUsedY)
   .attr("text-anchor", "middle")
   .text("Words most used by this language:");
 
 var wordsUsedByLang = infoContainer
   .append("text")
-  .attr("class", "mostUsedWords")
-  .attr("x", widthInfo / 2)
-  .attr("y", "295px")
+  .attr("class", "smallInfoText")
+  .attr("x", mostUsedX)
+  .attr("y", mostUsedY + 40)
   .attr("text-anchor", "middle");
 
 infoContainer
   .append("line")
   .attr("x1", widthInfo / 7)
   .attr("x2", widthInfo - 48)
-  .attr("y1", "266px")
-  .attr("y2", "266px")
-  .attr("stroke-width", "0.06em")
-  .attr("stroke", "white");
+  .attr("y1", mostUsedY + 6)
+  .attr("y2", mostUsedY + 6)
+  .attr("stroke-width", "0.04em")
+  .attr("stroke", "rgb(155, 155, 155)");
 
 var wordsUsedByLang2 = infoContainer
   .append("text")
-  .attr("class", "mostUsedWords")
-  .attr("x", widthInfo / 2)
-  .attr("y", "322px")
+  .attr("class", "smallInfoText")
+  .attr("x", mostUsedX)
+  .attr("y", mostUsedY + 70)
   .attr("text-anchor", "middle");
 
+countriesX = widthInfo / 2;
+countriesY = 400;
 infoContainer
   .append("text")
-  .attr("class", "mostUsedWords")
-  .attr("x", widthInfo / 2)
-  .attr("y", "375px")
+  .attr("class", "mostUsedWordHeadline")
+  .attr("x", countriesX)
+  .attr("y", countriesY)
   .attr("text-anchor", "middle")
-  .text("Countries speaking that language:");
+  .text("Countries speaking this language:");
 
 var countries = infoContainer
   .append("text")
-  .attr("class", "mostUsedWords")
-  .attr("x", widthInfo / 2)
-  .attr("y", "410px")
+  .attr("class", "smallInfoText")
+  .attr("x", countriesX)
+  .attr("y", countriesY + 40)
   .attr("text-anchor", "middle");
 
 infoContainer
   .append("line")
   .attr("x1", widthInfo / 7 + 2)
   .attr("x2", widthInfo - 52)
-  .attr("y1", "382px")
-  .attr("y2", "382px")
-  .attr("stroke-width", "0.06em")
-  .attr("stroke", "white");
+  .attr("y1", countriesY + 6)
+  .attr("y2", countriesY + 6)
+  .attr("stroke-width", "0.04em")
+  .attr("stroke", "rgb(155, 155, 155)");
 
 var countries2 = infoContainer
   .append("text")
-  .attr("class", "mostUsedWords")
-  .attr("x", widthInfo / 2)
-  .attr("y", "440px")
+  .attr("class", "smallInfoText")
+  .attr("x", countriesX)
+  .attr("y", countriesY + 70)
   .attr("text-anchor", "middle");
+
+familyX = widthInfo / 2;
+familyY = 520;
+infoContainer
+  .append("text")
+  .attr("class", "mostUsedWordHeadline")
+  .attr("x", familyX)
+  .attr("y", familyY)
+  .attr("text-anchor", "middle")
+  .text("This language is part of the family:");
+
+var families = infoContainer
+  .append("text")
+  .attr("class", "smallInfoText")
+  .attr("x", familyX)
+  .attr("y", familyY + 40)
+  .attr("text-anchor", "middle");
+
+infoContainer
+  .append("line")
+  .attr("x1", widthInfo / 7 + 2)
+  .attr("x2", widthInfo - 52)
+  .attr("y1", familyY + 6)
+  .attr("y2", familyY + 6)
+  .attr("stroke-width", "0.04em")
+  .attr("stroke", "rgb(155, 155, 155)");
 
 var linesGroup = svgContainer.append("g");
 
@@ -1029,7 +1089,6 @@ lines
   .attr("y2", o => o)
   .attr("stroke-width", 0.9)
   .attr("stroke-dasharray", "3 8")
-  // .attr("stroke", "rgb(65, 64, 64)");
   .attr("stroke", "rgba(61, 148, 150, 0.9)");
 
 var circlesGroup = svgContainer
@@ -1128,7 +1187,10 @@ function renderInfo() {
   infoLanguageName.text(capitalizeFirstLetter(data[cur_lang].lang_written));
   // infoHeadline.text(capitalizeFirstLetter(data[cur_lang].lang_written));
   // infoLanguageName.text(cur_headline);
-  mostUsedWords.text(data[cur_lang].unique_word_per_lang);
+  mostUsedWords.text(
+    capitalizeFirstLetter(data[cur_lang].unique_word_per_lang)
+  );
+  numSpeakers.text(numberWithCommas(data[cur_lang].speakers));
   unique_lang_per_word = data[cur_lang].unique_lang_per_word;
 
   if (unique_lang_per_word == "") {
@@ -1155,6 +1217,9 @@ function renderInfo() {
     countries.text(countries_str);
     countries2.text("");
   }
+  family_str = data[cur_lang].family_name;
+  family_str = family_str.replace(",", " >>");
+  families.text(family_str);
 }
 
 function renderLoad() {
