@@ -17,6 +17,7 @@
     #141621 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171925', endColorstr='#151723',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  overflow: hidden;
 }
 ​ #cont::before {
   position: absolute;
@@ -29,20 +30,20 @@
 
 #overlayDiv {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   padding: 0;
   /* display: block; */
   /* margin: 0 auto; */
   outline: 1px solid transparent;
-
+  transition: all 700ms cubic-bezier(0.71, -0.03, 1, 1);
   width: 100%;
-  height: 100%;
+  height: 120%;
   z-index: 98;
 }
 #overlayBG {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   padding: 0;
   /* display: block; */
@@ -53,18 +54,6 @@
   height: 100%;
   z-index: 98;
   background: #181b26; /* Old browsers */
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    #181b26 0%,
-    #141721 100%
-  ); /* FF3.6-15 */
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    #181b26 0%,
-    #141721 100%
-  ); /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(
     ellipse at center,
     #181b26 0%,
@@ -72,14 +61,19 @@
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181b26', endColorstr='#141721',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
-
+#overlayDiv.hidden {
+  /* transition: all 700ms ease; */
+  /* bottom: 100%; */
+  transform: translateY(-100%);
+}
 .imgOpening {
   position: absolute;
-  top: 2%;
+  bottom: 4.5%;
   left: 0;
   padding: 0;
   /* display: block; */
   /* margin: 0 auto; */
+  transform: scale(1.09);
   width: 100%;
   height: 100%;
   z-index: 98;
@@ -87,12 +81,17 @@
   outline: 1px solid transparent;
   stroke: none;
   background-image: url("resources/opening/Opening.png");
+  background-repeat: no-repeat;
+  opacity: 0.4;
 }
 
 .textOpening {
+  position: absolute;
+
   text-align: center;
   vertical-align: middle;
-  line-height: 9em;
+  top: 45.5%;
+  left: 26.2%;
   font-family: "Avenir Next Condensed";
   font-weight: bold;
   color: white;
@@ -101,16 +100,77 @@
 }
 
 .secondTextOpening {
+  position: absolute;
+
   text-align: center;
   vertical-align: middle;
-  line-height: 11em;
+  top: 54.5%;
+  left: 26.2%;
+  /* margin-left: 13.5em; */
   font-family: "Avenir Next Condensed";
   font-weight: lighter;
   font-style: italic;
   color: white;
-  font-size: 3em;
+  font-size: 1.75em;
   z-index: 99;
 }
+
+.enterButtonDesign {
+  transition: all 300ms ease;
+
+  background: #171925; /* Old browsers */
+  background: -moz-linear-gradient(
+    -45deg,
+    #181b26 0%,
+    #141721 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -45deg,
+    #181a26 0%,
+    #141721 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    135deg,
+    #181a26 0%,
+    #141721 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171925', endColorstr='#151723',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  opacity: 0.75;
+  box-shadow: 0px 12px 17px -6px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  border: 0.09em solid rgba(78, 137, 159, 0.5);
+  top: 62%;
+  left: 40.3%;
+  width: 11%;
+  height: 6%;
+  border-radius: 1em;
+  z-index: 99;
+  font-family: "Avenir Next Condensed";
+  font-weight: normal;
+  /* font-style: italic; */
+  color: white;
+  font-size: 1.4em;
+  transform-origin: center;
+  text-align: center;
+  outline: none;
+}
+
+.enterButtonDesign:hover {
+  transition: all 300ms ease;
+  border: 0.11em solid rgba(125, 179, 196, 1);
+  font-weight: normal;
+
+  font-size: 1.47em;
+
+  opacity: 0.9;
+}
+
+.enterButtonDesign:active {
+  transition: all 300ms ease;
+  transform: scale(0.95);
+  opacity: 0.6;
+}
+
 #toolBar {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#171925+0,151723+100 */
   background: #171925; /* Old browsers */
@@ -272,11 +332,18 @@
   fill: #555252;
   transform-origin: center;
   transition-property: transform opacity;
-  transition-duration: 0.1s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0, 2.18);
   transform: scale(1);
+  opacity: 1;
   cursor: pointer;
+}
+
+.circleDesign.hidden {
+  transform: scale(0.3);
+  opacity: 0;
+}
+.circleDesign.open {
 }
 
 .circleDesign:hover {
@@ -403,6 +470,7 @@
 
 .happiness {
 }
+
 .geo1 {
   /* South America */
   fill: #673ab7;

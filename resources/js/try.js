@@ -810,6 +810,8 @@ var linesArr = [65, 165, 265, 365, 465, 565, 665, 765];
 
 var cur_view = "flag";
 var cur_lang = data.findIndex(d => d.language == "English");
+var hidePoints = true;
+var index = 0;
 
 var marginMap = { top: 125, right: 370, bottom: 40, left: 20 };
 var marginInfo = { top: 125, right: 20, bottom: 40, left: 20 };
@@ -838,20 +840,27 @@ updateWindowSize();
 
 var bodySelect = d3.select("body").attr("id", "cont");
 
-// var opening = bodySelect.append("div").attr("id", "overlayDiv");
-// opening.append("div").attr("id", "overlayBG");
-// opening.append("img").attr("class", "imgOpening");
-// opening
-//   .append("div")
-//   .attr("class", "textOpening")
-//   .text("EMOTIONAL WORLD");
-//
-// opening
-//   .append("div")
-//   .attr("class", "secondTextOpening")
-//   .text(
-//     "enter the map & start investigating the world from another perspective"
-//   );
+var opening = bodySelect.append("div").attr("id", "overlayDiv");
+opening.append("div").attr("id", "overlayBG");
+opening.append("div").attr("class", "imgOpening");
+opening
+  .append("div")
+  .attr("class", "textOpening")
+  .text("EMOTIONAL WORLD");
+
+opening
+  .append("div")
+  .attr("class", "secondTextOpening")
+  .text(
+    "enter the map & start investigating the world from another perspective"
+  );
+
+opening
+  .append("button")
+  .attr("class", "enterButtonDesign")
+  .attr("id", "enterButton")
+  .on("click", openMap)
+  .text("Enter");
 
 var boxesContainer = bodySelect
   .append("div")
@@ -1118,7 +1127,9 @@ var circlesGroup = svgContainer
 var circlesGroupEnter = circlesGroup
   .enter()
   .append("g")
-  .attr("class", "circleDesign flag")
+  .attr("id", function(d, i) {
+    return "circle" + i;
+  })
   .style("transform-origin", d => `${xScale(d.x)}px ${yScale(d.y)}px`)
   .on("mouseover", mouseOn)
   .on("mouseout", mouseOff);
@@ -1133,13 +1144,15 @@ function render() {
   yScale.range([50, heightMap - 80]);
   svgContainer.call(tip);
 
-  circlesGroupEnter.attr("class", o => {
-    if (cur_view == "flag") return "circleDesign flag";
-    else if (cur_view == "geo") return "circleDesign geo geo" + o.geo;
-    else if (cur_view == "family")
-      return "circleDesign family family" + o.family;
-    else if (cur_view == "happiness") return "circleDesign happiness";
-  });
+  circlesGroupEnter
+    .attr("class", o => {
+      if (cur_view == "flag") return "circleDesign flag";
+      else if (cur_view == "geo") return "circleDesign geo geo" + o.geo;
+      else if (cur_view == "family")
+        return "circleDesign family family" + o.family;
+      else if (cur_view == "happiness") return "circleDesign happiness";
+    })
+    .classed("hidden", hidePoints);
 
   circle1Group
     .attr("id", "geoFamily")
@@ -1246,6 +1259,19 @@ function renderLoad() {
   renderInfo();
 }
 
+function openMap() {
+  document.getElementById("overlayDiv").classList.add("hidden");
+  hidePoints = false;
+
+  for (var i = 0; i < data.length; i++) {
+    setTimeout(_ => {
+      document.getElementById("circle" + index).classList.remove("hidden");
+      index += 1;
+    }, 450 + i * 37);
+  }
+  if (index == 53) render();
+}
+
 function mouseOn(d) {
   tip.show(d);
 }
@@ -1297,4 +1323,9 @@ function get_icon_name(view) {
   else if (view == "family") icon = "tree";
   else if (view == "happiness") icon = "thumbs-up";
   return icon;
+}
+
+function remove_hidden() {
+  document.getElementById("circle" + index).classList.remove("hidden");
+  index += 1;
 }
