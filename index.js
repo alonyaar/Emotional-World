@@ -840,7 +840,9 @@ updateWindowSize();
 
 var bodySelect = d3.select("body").attr("id", "cont");
 
-var opening = bodySelect.append("div").attr("id", "overlayDiv");
+var fixedSizeDiv = bodySelect.append("div").attr("id", "fixedSizeDiv");
+
+var opening = fixedSizeDiv.append("div").attr("id", "overlayDiv");
 opening.append("div").attr("id", "overlayBG");
 opening.append("div").attr("class", "imgOpening");
 opening
