@@ -1168,13 +1168,7 @@ function render() {
     .attr("cx", o => xScale(o.x))
     .attr("cy", o => yScale(o.y))
     .attr("r", "1.3em")
-    // .attr("fill", function(d) {
-    //   index = data.findIndex(function(element) {
-    //     return element.language == d.language;
-    //   });
-    //
-    //   return happinessColors[index];
-    // });
+
     .attr("fill", function(d) {
       if (d.happiness == 15) return "transparent";
       else if (d.happiness > 15 && d.happiness < 16.8) return "#9A2A1B";
