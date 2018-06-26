@@ -30,7 +30,7 @@
 
 #fixedSizeDiv {
   width: 1440px;
-  height: auto;
+  margin: auto;
 }
 
 #overlayDiv {
