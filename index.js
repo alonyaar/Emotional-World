@@ -813,10 +813,10 @@ var cur_lang = data.findIndex(d => d.language == "English");
 var hidePoints = true;
 var index = 0;
 
-var marginMap = { top: 125, right: 370, bottom: 40, left: 20 };
+var marginMap = { top: 125, right: 370, bottom: 120, left: 20 };
 var marginInfo = { top: 125, right: 20, bottom: 40, left: 20 };
-var widthMap = window.innerWidth - marginMap.right - marginMap.left;
-var heightMap = window.innerHeight - marginMap.top - marginMap.bottom;
+var widthMap = 1440 - marginMap.right - marginMap.left;
+var heightMap = 900 - marginMap.top - marginMap.bottom;
 var widthInfo = widthMap / 3;
 var xScale = d3
   .scaleLinear()
@@ -831,8 +831,8 @@ xScale.range([50, widthMap - 80]);
 yScale.range([50, heightMap - 80]);
 happyScale.range([0, 1]);
 function updateWindowSize() {
-  widthMap = window.innerWidth - marginMap.right - marginMap.left;
-  heightMap = window.innerHeight - marginMap.top - marginMap.bottom;
+  widthMap = 1400 - marginMap.right - marginMap.left;
+  heightMap = 900 - marginMap.top - marginMap.bottom;
   widthInfo = widthMap / 3;
 }
 window.addEventListener("resize", updateWindowSize);
@@ -845,19 +845,20 @@ var fixedSizeDiv = bodySelect.append("div").attr("id", "fixedSizeDiv");
 var opening = fixedSizeDiv.append("div").attr("id", "overlayDiv");
 opening.append("div").attr("id", "overlayBG");
 opening.append("div").attr("class", "imgOpening");
-opening
+var textHolder = opening.append("div").attr("class", "textsHolder");
+textHolder
   .append("div")
   .attr("class", "textOpening")
   .text("EMOTIONAL WORLD");
 
-opening
+textHolder
   .append("div")
   .attr("class", "secondTextOpening")
   .text(
     "enter the map & start investigating the world from another perspective"
   );
 
-opening
+textHolder
   .append("button")
   .attr("class", "enterButtonDesign")
   .attr("id", "enterButton")
