@@ -813,7 +813,7 @@ var cur_lang = data.findIndex(d => d.language == "English");
 var hidePoints = true;
 var index = 0;
 
-var marginMap = { top: 125, right: 370, bottom: 120, left: 20 };
+var marginMap = { top: 125, right: 370, bottom: 120, left: 30 };
 var marginInfo = { top: 125, right: 20, bottom: 40, left: 20 };
 var widthMap = 1440 - marginMap.right - marginMap.left;
 var heightMap = 900 - marginMap.top - marginMap.bottom;
@@ -840,7 +840,7 @@ updateWindowSize();
 
 var bodySelect = d3.select("body").attr("id", "cont");
 
-var fixedSizeDiv = bodySelect.append("div").attr("id", "fixedSizeDiv");
+var fixedSizeDiv = bodySelect.append("div").attr("class", "fixedSizeDiv");
 
 var opening = fixedSizeDiv.append("div").attr("id", "overlayDiv");
 opening.append("div").attr("id", "overlayBG");
@@ -865,13 +865,13 @@ textHolder
   .on("click", openMap)
   .text("Enter");
 
-var boxesContainer = bodySelect
+var boxesContainer = fixedSizeDiv
   .append("div")
   .attr("id", "diva")
   .style("display", "flex")
   .style("justify-content", "center");
 
-var toolBar = bodySelect.append("nav").attr("id", "toolBar");
+var toolBar = fixedSizeDiv.append("nav").attr("id", "toolBar");
 
 toolBar.append("a").attr("class", "Logo buttonDesign");
 
