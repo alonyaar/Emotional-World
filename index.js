@@ -869,7 +869,7 @@ var boxesContainer = bodySelect
   .append("div")
   .attr("id", "diva")
   .style("display", "flex")
-  .style("justify-content", "space-around");
+  .style("justify-content", "center");
 
 var toolBar = bodySelect.append("nav").attr("id", "toolBar");
 

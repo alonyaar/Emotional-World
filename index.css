@@ -158,6 +158,7 @@
   font-size: 1.4em;
   transform-origin: center;
   text-align: center;
+  outline: none;
 }
 
 .enterButtonDesign:hover {
@@ -299,7 +300,6 @@
   margin-top: 125px;
   margin-right: 25px;
   margin-left: 15px;
-  /* float: left; */
   box-shadow: 14px 17px 17px -6px rgba(0, 0, 0, 0.5);
   /* border: 0.09em solid rgba(61, 148, 150, 0.7); */
 }
