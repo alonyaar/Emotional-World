@@ -19,17 +19,10 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171925', endColorstr='#151723',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   overflow: hidden;
 }
-​#cont::before {
-  position: absolute;
-  content: "";
-  background: rgba(199, 0, 0, 0.9); /*partially transparent image*/
-  width: 200px;
-  height: 200px;
-  pointer-events: none;
-}
-
-#fixedSizeDiv {
+​ #fixedSizeDiv {
+  position: relative;
   width: 1440px;
+  height: 900px;
   margin: auto;
 }
 
@@ -43,7 +36,7 @@
   outline: 1px solid transparent;
   transition: all 700ms cubic-bezier(0.71, -0.03, 1, 1);
   width: 100%;
-  height: 120%;
+  height: 100%;
   z-index: 98;
 }
 #overlayBG {
@@ -69,7 +62,7 @@
 #overlayDiv.hidden {
   /* transition: all 700ms ease; */
   /* bottom: 100%; */
-  transform: translateY(-100%);
+  transform: translateY(-110%);
 }
 .imgOpening {
   position: absolute;
@@ -95,12 +88,12 @@
 
   text-align: center;
   vertical-align: middle;
-  top: 47.5%;
-  left: 27.2%;
-  font-family: "Avenir Next Condensed";
-  font-weight: bold;
+  top: 41.5%;
+  left: 25.6%;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
   color: white;
-  font-size: 5em;
+  font-size: 4.5em;
   z-index: 99;
 }
 
@@ -109,20 +102,19 @@
 
   text-align: center;
   vertical-align: middle;
-  top: 56.5%;
-  left: 27.2%;
+  top: 51.5%;
+  left: 25.5%;
   /* margin-left: 13.5em; */
-  font-family: "Avenir Next Condensed";
-  font-weight: lighter;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
   font-style: italic;
   color: white;
-  font-size: 1.75em;
+  font-size: 1.53em;
   z-index: 99;
 }
 
 .enterButtonDesign {
   transition: all 300ms ease;
-
   background: #171925; /* Old browsers */
   background: -moz-linear-gradient(
     -45deg,
@@ -144,15 +136,15 @@
   box-shadow: 0px 12px 17px -6px rgba(0, 0, 0, 0.3);
   position: absolute;
   border: 0.09em solid rgba(78, 137, 159, 0.5);
-  top: 65%;
+  top: 60%;
   left: 43%;
-  width: 11%;
-  height: 6%;
+  width: 8em;
+  height: 3em;
   border-radius: 1em;
   z-index: 99;
-  font-family: "Avenir Next Condensed";
+  font-family: "Lato";
   font-weight: normal;
-  /* font-style: italic; */
+  font-style: italic;
   color: white;
   font-size: 1.4em;
   transform-origin: center;
@@ -162,11 +154,9 @@
 
 .enterButtonDesign:hover {
   transition: all 300ms ease;
-  border: 0.11em solid rgba(125, 179, 196, 1);
-  font-weight: normal;
-
-  font-size: 1.47em;
-
+  border: 0.15em solid rgba(125, 179, 196, 1);
+  /* font-size: 1.47em; */
+  transform: scale(1.05);
   opacity: 0.9;
 }
 
@@ -218,7 +208,8 @@
   padding: 24px 24px 24px 12px;
   font-size: 1em;
   font-style: normal;
-  font-family: "Avenir";
+  font-family: "Lato";
+  font-weight: 300;
   border-right: 0.12em solid #1f2433;
   border-left: 0.12em solid transparent;
   border-top: none;
@@ -307,7 +298,7 @@
 
 .langName {
   font-size: 1em;
-  font-family: "Avenir";
+  font-family: "Lato";
   font-weight: lighter;
   fill: #b8b9ba;
 }
@@ -316,7 +307,7 @@
   position: absolute;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
   font-size: 1em;
-  font-family: "Avenir";
+  font-family: "Lato";
   font-weight: lighter;
   user-select: none;
   fill: #383838;
@@ -427,7 +418,7 @@
   /* display: inline-block; */
   box-shadow: 14px 17px 17px -6px rgba(0, 0, 0, 0.5);
   /* font-family: "Times New Roman"; */
-  font-family: "Avenir";
+  font-family: "Lato";
   border-radius: 50px;
   border: 0.09em solid rgba(123, 228, 209, 0.4);
 
@@ -451,25 +442,25 @@
 
 .mostUsedWordHeadline {
   fill: rgb(155, 155, 155);
-  font-family: "Avenir";
+  font-family: "Lato";
   font-size: 1em;
-  font-weight: lighter;
+  font-weight: normal;
   letter-spacing: 0px;
 }
 
 .mostUsedWord {
   fill: white;
-  font-family: "Avenir";
+  font-family: "Lato";
   font-size: 1.5em;
-  font-weight: lighter;
+  font-weight: normal;
   letter-spacing: 0px;
 }
 
 .smallInfoText {
   fill: white;
-  font-family: "Avenir";
+  font-family: "Lato";
   font-size: 1.1em;
-  font-weight: lighter;
+  font-weight: normal;
   letter-spacing: 0px;
 }
 

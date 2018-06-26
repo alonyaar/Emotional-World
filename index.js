@@ -854,7 +854,7 @@ opening
   .append("div")
   .attr("class", "secondTextOpening")
   .text(
-    "enter the map & start investigating the world from another perspectiveAA"
+    "enter the map & start investigating the world from another perspective"
   );
 
 opening
