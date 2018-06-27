@@ -813,11 +813,10 @@ var cur_lang = data.findIndex(d => d.language == "English");
 var hidePoints = true;
 var index = 0;
 
-var marginMap = { top: 125, right: 370, bottom: 120, left: 30 };
+widthInfo = 330;
+var marginMap = { top: 125, right: 55 + widthInfo + 30, bottom: 120, left: 20 };
 var marginInfo = { top: 125, right: 20, bottom: 40, left: 20 };
-var widthMap = 1440 - marginMap.right - marginMap.left;
-var heightMap = 900 - marginMap.top - marginMap.bottom;
-var widthInfo = widthMap / 3;
+
 var xScale = d3
   .scaleLinear()
   .domain([d3.min(data, d => d.x), d3.max(data, d => d.x)]);
@@ -827,23 +826,29 @@ var yScale = d3
 var happyScale = d3
   .scaleLinear()
   .domain([d3.min(data, d => d.happiness), d3.max(data, d => d.happiness)]);
-xScale.range([50, widthMap - 80]);
-yScale.range([50, heightMap - 80]);
 happyScale.range([0, 1]);
-function updateWindowSize() {
-  widthMap = 1400 - marginMap.right - marginMap.left;
-  heightMap = 900 - marginMap.top - marginMap.bottom;
-  widthInfo = widthMap / 3;
-}
-window.addEventListener("resize", updateWindowSize);
 updateWindowSize();
 
-var bodySelect = d3.select("body").attr("id", "cont");
+/** Initializing Main Divs */
 
+var bodySelect = d3.select("body").attr("id", "cont");
 var fixedSizeDiv = bodySelect.append("div").attr("class", "fixedSizeDiv");
 
-var opening = fixedSizeDiv.append("div").attr("id", "overlayDiv");
-opening.append("div").attr("id", "overlayBG");
+var boxesContainer = fixedSizeDiv
+  .append("div")
+  .attr("id", "diva")
+  .style("display", "flex")
+  .style("justify-content", "center");
+
+var svgContainer = boxesContainer
+  .append("svg")
+  .attr("width", widthMap)
+  .attr("height", heightMap)
+  .attr("class", "svgContainer");
+
+/** Initializing Opening Screen */
+
+var opening = bodySelect.append("div").attr("id", "overlayDiv");
 opening.append("div").attr("class", "imgOpening");
 var textHolder = opening.append("div").attr("class", "textsHolder");
 textHolder
@@ -865,11 +870,7 @@ textHolder
   .on("click", openMap)
   .text("Enter");
 
-var boxesContainer = fixedSizeDiv
-  .append("div")
-  .attr("id", "diva")
-  .style("display", "flex")
-  .style("justify-content", "center");
+/** Initializing ToolBar */
 
 var toolBar = fixedSizeDiv.append("nav").attr("id", "toolBar");
 
@@ -919,19 +920,7 @@ toolBar
 document.getElementById("happinessButton").innerHTML =
   "<i id='happinessIcon' class='fa fa-thumbs-up fa-gradient'></i>    Happy Planet Index";
 
-var tip = d3
-  .tip()
-  .attr("class", "tipDesign")
-  .offset([-6, 0])
-  .html(function(d) {
-    return d.language.replace("_", " ").replace("_", " ");
-  });
-
-var svgContainer = boxesContainer
-  .append("svg")
-  .attr("width", widthMap)
-  .attr("height", heightMap)
-  .attr("class", "svgContainer");
+/** Initializing Info Frame */
 
 var infoContainer = boxesContainer
   .append("svg")
@@ -1105,6 +1094,8 @@ infoContainer
   .attr("stroke-width", "0.04em")
   .attr("stroke", "rgb(155, 155, 155)");
 
+/** Initializing Map Frame */
+
 var linesGroup = svgContainer.append("g");
 
 var lines = linesGroup
@@ -1115,7 +1106,7 @@ var lines = linesGroup
 
 lines
   .attr("x1", 30)
-  .attr("x2", widthMap - 70)
+  .attr("x2", widthMap - 50)
   .attr("y1", o => o)
   .attr("y2", o => o)
   .attr("stroke-width", 0.9)
@@ -1141,10 +1132,26 @@ var circle1Group = circlesGroupEnter.append("circle");
 var circle2Group = circlesGroupEnter.append("circle");
 circlesGroupEnter.append("image");
 
+var tip = d3
+  .tip()
+  .attr("class", "tipDesign")
+  .offset([-6, 0])
+  .html(function(d) {
+    return d.language.replace("_", " ").replace("_", " ");
+  });
+
+/** Functions Implementation */
+
+function updateWindowSize() {
+  widthMap = 1400 - marginMap.right - marginMap.left;
+  heightMap = 900 - marginMap.top - marginMap.bottom;
+  widthInfo = 330;
+  xScale.range([50, widthMap - 50]);
+  yScale.range([50, heightMap - 50]);
+}
+
 function render() {
   updateWindowSize();
-  xScale.range([50, widthMap - 80]);
-  yScale.range([50, heightMap - 80]);
   svgContainer.call(tip);
 
   circlesGroupEnter
@@ -1325,4 +1332,12 @@ function get_icon_name(view) {
 function remove_hidden() {
   document.getElementById("circle" + index).classList.remove("hidden");
   index += 1;
+}
+
+function updateWindowSize() {
+  widthMap = 1400 - marginMap.right - marginMap.left;
+  heightMap = 900 - marginMap.top - marginMap.bottom;
+  widthInfo = 330;
+  xScale.range([50, widthMap - 50]);
+  yScale.range([50, heightMap - 50]);
 }
