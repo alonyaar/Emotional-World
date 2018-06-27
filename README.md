@@ -1,11 +1,11 @@
 # Emotional World
 
-[Enter the map](https://alonyaar.github.io/Emotional-World) - **Works best on Google Chrome!**
+[ENTER THE MAP](https://alonyaar.github.io/Emotional-World) - **Works best on Google Chrome!**
 
 ---
 
 - The project maps 53 languages by comparing their daily use of approx. 100 words
-  that deals with emotions, feelings and experiences
+  that deal with emotions, feelings and experiences
 
 - I used [this database](http://worldlex.lexique.org/) to calculate the frequency
   of the words in each language. Then, by translating the words to 60 languages I
