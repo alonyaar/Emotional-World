@@ -1130,7 +1130,7 @@ var circlesGroupEnter = circlesGroup
 
 var circle1Group = circlesGroupEnter.append("circle");
 var circle2Group = circlesGroupEnter.append("circle");
-circlesGroupEnter.append("image");
+circlesGroupEnter.append("svg:image");
 
 var tip = d3
   .tip()
