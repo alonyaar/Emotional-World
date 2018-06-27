@@ -868,7 +868,7 @@ textHolder
   .attr("class", "enterButtonDesign")
   .attr("id", "enterButton")
   .on("click", openMap)
-  .text("Enter");
+  .text("ENTER");
 
 /** Initializing ToolBar */
 
