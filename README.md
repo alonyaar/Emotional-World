@@ -8,7 +8,7 @@
   that deal with emotions, feelings and experiences
 
 - By translating the words to 53 different languages I calculated their frequency in
-  Twitter, Blogs & Newspapers using [this database] (http://worldlex.lexique.org/),
+  Twitter, Blogs & Newspapers using [this database](http://worldlex.lexique.org/),
   and created a 60X100 matrix with the frequency of each word for each language.
 
 - By reducing the dimensions of that matrix using **PCA and T-SNE**, I achieved the
